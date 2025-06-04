@@ -51,9 +51,6 @@ const Brand = () => {
       <Armed />
       <Galary4 />
 
-      <Vellore />
-      <Galary3 />
-
      <Store1920/>
      <Galary/>
 

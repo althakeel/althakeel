@@ -135,9 +135,13 @@ const navigate = useNavigate();
     
         {/* Header */}
         <header style={{ ...styles.header, ...(scrolledDown ? styles.headerFixedTop : {}) }}>
-          <div style={styles.logoContainer}>
-            <img src="https://res.cloudinary.com/dnpwsutir/image/upload/v1748353387/Logo_V2_1_dvu1bp.png" alt="Althakeel Logo" style={styles.logoImage} />
-          </div>
+        <a href="./" style={styles.logoContainer}>
+  <img
+    src="https://res.cloudinary.com/dnpwsutir/image/upload/v1748353387/Logo_V2_1_dvu1bp.png"
+    alt="Althakeel Logo"
+    style={styles.logoImage}
+  />
+</a>
     
           {!isMobile && (
           <nav style={styles.centerNav}>
