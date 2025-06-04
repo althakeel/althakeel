@@ -1,19 +1,18 @@
-
 .preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #fff; /* or any background color you want */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-  }
-  
-  .preloader-gif {
-    width: 100px; /* adjust size if needed */
-    height: auto;
-  }
-  
+  position: fixed;
+  inset: 0; /* shorthand for top: 0; right: 0; bottom: 0; left: 0 */
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 20px; /* ensures it's not flush against edges on very small devices */
+  box-sizing: border-box;
+}
+
+.preloader-gif {
+  max-width: 100px; /* Limits size on large screens */
+  width: 100%;
+  max-height: 100px;
+  height: auto;
+}

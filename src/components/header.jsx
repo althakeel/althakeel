@@ -98,7 +98,7 @@ const navigate = useNavigate();
     { labelEn: 'ABOUT US', labelAr: 'من نحن', path: '/about' },
     { labelEn: 'OUR BRANDS', labelAr: 'علاماتنا التجارية', path: '/brands' },
     {
-      labelEn: 'ECCOMERCE',
+      labelEn: 'ECOMMERCE',
       labelAr: 'الشراكة معنا',
       // no path here as requested
       subItems: [
@@ -261,6 +261,17 @@ const navigate = useNavigate();
                         {isArabic ? sub.labelAr : sub.labelEn}
                       </Link>
                     ))}
+                    {mobileMenuOpen ? (
+  <FaTimes
+    onClick={() => setMobileMenuOpen(false)}
+    style={styles.closeIcon}
+  />
+) : (
+  <FaBars
+    onClick={() => setMobileMenuOpen(true)}
+    style={styles.menuIcon}
+  />
+)}
                   </div>
                 )}
               </div>
@@ -446,11 +457,8 @@ const styles = {
   },
  
   
+ 
   
-  mobileMenuIcon: {
-    display: 'block',
-    cursor: 'pointer',
-  },
   mobileMenu: {
     position: 'fixed',
     top: 0,
@@ -464,12 +472,19 @@ const styles = {
     flexDirection: 'column',
     padding: '20px',
     boxSizing: 'border-box',
-    zIndex: 999,
+    zIndex: 555,
     overflowY: 'auto',
     transition: 'transform 0.4s ease, opacity 0.4s ease',
+    zIndex: 10,
+
   },
+  closeIcon: {
+    zIndex: 20,
+  },
+  
   mobileMenuOpen: {
     opacity: 1,
+  
     transform: 'translateY(0%)',
     pointerEvents: 'auto',
   },
@@ -492,6 +507,9 @@ const styles = {
   },
   mobileMenuClose: {
     cursor: 'pointer',
+    fontSize: '24px',
+    color: '#fff',
+    padding: '10px',
   },
   mobileNavLink: {
     textDecoration: 'none',

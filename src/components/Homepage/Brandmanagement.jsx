@@ -103,7 +103,7 @@ const FullWidthCarousel = () => {
 
         .carousel-container {
           width: 100%;
-          padding: 40px 0;
+          padding: 10px 0 40px ;
   background-color: #f9fafb;
           margin: 0 auto;
         }
@@ -231,47 +231,40 @@ const FullWidthCarousel = () => {
         }
 
         /* Tablet Styles */
-        @media (max-width: 768px) {
-          .slide {
-            flex-direction: column;
-            min-width: 95vw;
-            max-width: 95vw;
-            margin: 0 10px;
-          }
-
-          .slide-image {
-            width: 100%;
-            height: 220px;
-            border-top-left-radius: 16px;
-            border-top-right-radius: 16px;
-          }
-
-          .slide-text {
-            width: 100%;
-            padding: 16px 20px;
-          }
-        }
-
-        
-     @media (max-width: 480px) {
+       @media (max-width: 768px) {
   .slide {
     flex-direction: column;
-    width: 50px;
-    min-width: 50px;
-    max-width: 80vw !important;
-    margin: 0;
-    border-radius: 0;
+    flex: 0 0 50%;
   }
 
-  .slide-container {
-    padding: 0;
-    margin: 0;
+  .slide-image {
+    width: 80%;
+    height: 200px;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+  }
+
+  .slide-text {
+    width: 100%;
+    padding: 16px 20px;
+  }
+}
+
+        
+    @media (max-width: 480px) {
+  .slide {
+    flex-direction: column;
+    flex: 0 0 65%;
+    margin: 0 auto;
+    border-radius: 12px;
+   margin-left:10px;
   }
 
   .slide-image {
     height: 180px;
     width: 100%;
     object-fit: cover;
+    padding:'10px;
   }
 
   .slide-text {
@@ -279,6 +272,7 @@ const FullWidthCarousel = () => {
     width: 100%;
   }
 }
+
 
       `}</style>
 
