@@ -15,7 +15,8 @@ const AboutUs = () => {
       alignItems: 'center',
       justifyContent: 'center',
       padding: '60px 5%',
-      minHeight: '40vh', // Full screen height
+      minHeight: '40vh',
+      // maxHeight:"400px", 
       background: '#fafafa',
       direction: isArabic ? 'rtl' : 'ltr',
       textAlign: isArabic ? 'right' : 'left',
@@ -32,20 +33,21 @@ const AboutUs = () => {
     video: {
       width: '100%',
       height: '100%',
-      maxHeight: '500px', // increased height
+      maxHeight: '500px', 
       objectFit: 'cover',
       borderRadius: '16px',
     },
     content: {
       flex: '1 1 400px',
-      maxWidth: '550px',
+      maxWidth: '650px',
+ 
       fontFamily:'Montserrat, sans-serif',
     },
     tag: {
       fontWeight: 'bold',
       fontSize: '17px',
       color: '#a08649',
-      marginBottom: '14px',
+      marginBottom: '10px',
       fontFamily:'Montserrat, sans-serif',
 
     },
@@ -53,15 +55,15 @@ const AboutUs = () => {
       fontSize: '35px',
       fontWeight: '500',
       color: '#111',
-      marginBottom: '24px',
+      marginBottom: '15px',
       lineHeight: '1.2',
       fontFamily:'Montserrat, sans-serif',
     },
     text: {
       fontSize: '17px',
       color: '#444',
-      lineHeight: '1.7',
-      marginBottom: '36px',
+      lineHeight: '1.5',
+      marginBottom: '25px',
     },
     button: {
       padding: '16px 32px',

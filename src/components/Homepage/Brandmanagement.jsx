@@ -72,7 +72,7 @@ const FullWidthCarousel = () => {
     };
 
     const frame = requestAnimationFrame(scrollToCurrent);
-    timeoutRef.current = setTimeout(nextSlide, 5000);
+    timeoutRef.current = setTimeout(nextSlide, 65000);
 
     return () => {
       cancelAnimationFrame(frame);
@@ -205,7 +205,7 @@ const FullWidthCarousel = () => {
           position: absolute;
           top: 50%;
           transform: translateY(-50%);
-          z-index: 10;
+          z-index: 5;
           padding: 8px;
           background-color: #fff;
           border-radius: 50%;
