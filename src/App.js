@@ -46,7 +46,10 @@ function App() {
   }
 
   return (
+  
     <LanguageProvider>
+        <div className="page-wrapper">
+
       <Router>
         {/* <CustomCursor /> */}
         <Routes>
@@ -64,6 +67,7 @@ function App() {
         </Routes>
         {/* <ScrollUp /> */}
       </Router>
+      </div>
     </LanguageProvider>
   );
 }

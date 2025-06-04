@@ -86,15 +86,15 @@ const BannerText = () => {
             z-index: 1;
           }
 
-          .fade-left {
-            left: 0;
-            background: linear-gradient(to right, #fff, transparent);
-          }
+          // .fade-left {
+          //   left: 0;
+          //   background: linear-gradient(to right, #fff, transparent);
+          // }
 
-          .fade-right {
-            right: 0;
-            background: linear-gradient(to left, #fff, transparent);
-          }
+          // .fade-right {
+          //   right: 0;
+          //   background: linear-gradient(to left, #fff, transparent);
+          // }
 
           .logo-scroller {
             display: flex;
@@ -110,7 +110,7 @@ const BannerText = () => {
           }
 
           .logo-image {
-            height: clamp(30px, 6vw, 60px);
+            height: clamp(55px, 6vw, 60px);
             width: auto;
             object-fit: contain;
           }
@@ -122,7 +122,7 @@ const BannerText = () => {
 
           @media (max-width: 600px) {
             .logo-scroller {
-              animation-duration: 60s !important;
+              animation-duration: 10s !important;
             }
           }
         `}

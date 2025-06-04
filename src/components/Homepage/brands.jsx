@@ -23,7 +23,7 @@ const hoverEffect = {
   boxShadow: '0 8px 20px rgba(0,0,0,0.15)',
 };
 
-const BrandCard = ({ logo, alt, width = '150px', height = '80px', special }) => {
+const BrandCard = ({ logo, alt, width = '140px', height = '80px', special }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -142,7 +142,7 @@ const Brands = () => {
             display: 'flex',
             flexWrap: 'wrap',
             justifyContent: 'center',
-            gap: '20px',
+            gap: '25px',
           }}
         >
           {brandLogos.map((brand, index) => (
@@ -150,7 +150,7 @@ const Brands = () => {
               key={index}
               logo={brand.logo}
               alt={brand.name}
-              width="150px"
+              width="130px"
               special
             />
           ))}
