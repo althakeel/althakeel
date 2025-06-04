@@ -59,7 +59,7 @@ const navigate = useNavigate();
     { labelEn: 'ABOUT US', labelAr: 'من نحن', path: '/about' },
     { labelEn: 'OUR BRANDS', labelAr: 'علاماتنا التجارية', path: '/brands' },
     {
-      labelEn: 'ECCOMERCE',
+      labelEn: 'ECOMMERCE',
       labelAr: 'الشراكة معنا',
       // no path here as requested
       subItems: [
