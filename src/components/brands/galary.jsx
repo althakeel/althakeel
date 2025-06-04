@@ -30,7 +30,7 @@ const Galary1 = () => {
           maxWidth: '1000px',
           margin: '0 auto',
           alignItems: 'center', // ✅ horizontally center content
-          textAlign: 'center',           color: '#fff',
+          textAlign: 'center',           color: '#000',
           marginBottom: '40px',
           fontFamily:'Montserrat, sans-serif',
         }}

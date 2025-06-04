@@ -7,10 +7,10 @@ const Galary1 = () => {
 
 
   const images = [
-    'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1748760531/11_hrjrjd.webp',
-    'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1748760531/9_dya0vb.webp',
-    'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1748760531/10_ik8yvy.webp',
-    'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1748760531/6_bftrhq.webp',
+    'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1748766988/V5_kfbucv.webp',
+    'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1748766986/V3_jzvxit.webp',
+    'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1748766984/V4_ko2a4s.webp',
+    'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1748766984/V2_jwjzog.webp',
   ];
 
   const heading = isRTL
