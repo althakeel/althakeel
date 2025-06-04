@@ -27,23 +27,37 @@ const WhyPartnerSection = () => {
       style={{
         width: "100%",
         background: "#f5f5f5",
-        padding: "20px 20px 0 ",
+        padding: "0px 16px 0",
+        boxSizing: "border-box",
       }}
     >
-      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+      <div
+        style={{
+          maxWidth: 1200,
+          margin: "0 auto",
+          width: "100%",
+        }}
+      >
         <h2
           style={{
-            fontSize: 36,
-            fontWeight: "600",
+            fontSize: "clamp(1.5rem, 4vw, 2.25rem)",
+            fontWeight: 600,
             textAlign: "center",
             color: "#222",
-            marginBottom: 50,
+            marginBottom: "2.5rem",
+            padding: "0 1rem",
           }}
         >
           Why Partner With Al Thakeel?
         </h2>
 
-        <div style={{ borderTop: "1px solid #ccc" }}>
+        <div
+          style={{
+            borderTop: "1px solid #ccc",
+            borderRadius: 6,
+            overflow: "hidden",
+          }}
+        >
           {features.map((item, idx) => {
             const isOpen = idx === activeIndex;
             return (
@@ -59,30 +73,29 @@ const WhyPartnerSection = () => {
                   onClick={() => toggle(idx)}
                   style={{
                     width: "100%",
-                    padding: "20px 30px",
+                    padding: "16px",
                     textAlign: "left",
                     background: "none",
                     border: "none",
                     cursor: "pointer",
-                    fontSize: 20,
-                    fontWeight: "500",
+                    fontSize: "clamp(1rem, 2.5vw, 1.25rem)",
+                    fontWeight: 500,
                     color: "#111",
                     display: "flex",
                     justifyContent: "space-between",
                     alignItems: "center",
-                    transition: "color 0.3s",
                   }}
                 >
                   {item.title}
-                  <span style={{ fontSize: 24, marginLeft: 10 }}>
+                  <span style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", marginLeft: 10 }}>
                     {isOpen ? "–" : "+"}
                   </span>
                 </button>
                 {isOpen && (
                   <div
                     style={{
-                      padding: "0 30px 25px",
-                      fontSize: 16,
+                      padding: "0 16px 16px",
+                      fontSize: "clamp(0.95rem, 2.2vw, 1.1rem)",
                       color: "#555",
                       lineHeight: 1.6,
                       backgroundColor: "#fff",

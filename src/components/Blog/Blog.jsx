@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 
 const Blog = () => {
   const posts = [
@@ -59,29 +59,54 @@ const Blog = () => {
   }, {}));
 
   const [activePost, setActivePost] = useState(null);
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const isMobile = windowWidth <= 768;
 
   const scrollToPost = (id) => {
     refs.current[id].current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <div style={{ background: '#f5f5f5', fontFamily: 'Poppins, sans-serif', padding: '40px 20px' }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', gap: '30px' }}>
+    <div
+      style={{
+        background: '#f5f5f5',
+        fontFamily: 'Poppins, sans-serif',
+        padding: isMobile ? '20px 10px' : '40px 20px',
+        boxSizing: 'border-box',
+      }}
+    >
+      <div
+        style={{
+          maxWidth: '1200px',
+          margin: '0 auto',
+          display: 'flex',
+          flexDirection: isMobile ? 'column' : 'row',
+          gap: '30px',
+          boxSizing: 'border-box',
+        }}
+      >
         {/* Sidebar */}
         <div
           style={{
-            width: '250px',
-            position: 'sticky',
+            width: isMobile ? '100%' : '250px',
+            position: isMobile ? 'relative' : 'sticky',
             top: '20px',
             background: '#fff',
             padding: '20px',
             boxShadow: '0 4px 12px rgba(0,0,0,0.05)',
             borderRadius: '8px',
-            height: 'fit-content',
+            boxSizing: 'border-box',
           }}
         >
-          <h3 style={{ marginBottom: '20px', color: '#000', fontSize: '18px' }}> Blog Titles</h3>
-          <ul style={{ listStyle: 'none', padding: 0, fontSize: '14px', color: '#333' }}>
+          <h3 style={{ marginBottom: '20px', color: '#000', fontSize: '18px' }}>Blog Titles</h3>
+          <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: '14px', color: '#333' }}>
             {posts.map((post) => (
               <li key={post.id} style={{ marginBottom: '12px' }}>
                 <button
@@ -93,6 +118,8 @@ const Blog = () => {
                     cursor: 'pointer',
                     color: '#0077b6',
                     textAlign: 'left',
+                    fontSize: isMobile ? '14px' : 'inherit',
+                    width: '100%',
                   }}
                 >
                   {post.title}
@@ -108,6 +135,7 @@ const Blog = () => {
             <div
               key={post.id}
               ref={refs.current[post.id]}
+              onClick={() => setActivePost(post)}
               style={{
                 background: '#fff',
                 padding: '20px',
@@ -115,24 +143,25 @@ const Blog = () => {
                 boxShadow: '0 6px 12px rgba(0,0,0,0.05)',
                 cursor: 'pointer',
                 display: 'flex',
+                flexDirection: isMobile ? 'column' : 'row',
                 gap: '20px',
-                alignItems: 'flex-start',
+                alignItems: isMobile ? 'center' : 'flex-start',
+                boxSizing: 'border-box',
               }}
-              onClick={() => setActivePost(post)}
             >
               <img
                 src={post.image}
                 alt={post.title}
                 style={{
-                  width: '160px',
-                  height: '100px',
+                  width: isMobile ? '100%' : '160px',
+                  height: isMobile ? 'auto' : '100px',
                   objectFit: 'cover',
                   borderRadius: '8px',
                   flexShrink: 0,
                 }}
               />
               <div>
-                <h2 style={{ marginBottom: '10px' }}>{post.title}</h2>
+                <h2 style={{ marginBottom: '10px', fontSize: isMobile ? '16px' : '18px' }}>{post.title}</h2>
                 <p style={{ fontSize: '14px', color: '#555' }}>{post.description.substring(0, 100)}...</p>
               </div>
             </div>
@@ -140,76 +169,75 @@ const Blog = () => {
         </div>
       </div>
 
-      {/* Popup Modal */}
-     {/* Popup Modal */}
-{activePost && (
-  <div
-    style={{
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      width: '100vw',
-      height: '100vh',
-      backgroundColor: 'rgba(0, 0, 0, 0.5)',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      zIndex: 9999,
-    }}
-    onClick={() => setActivePost(null)}
-  >
-    <div
-      style={{
-        background: '#fff',
-        padding: '20px',
-        borderRadius: '10px',
-        maxWidth: '900px',
-        width: '90%',
-        maxHeight: '90vh',
-        overflowY: 'auto',
-        display: 'flex',
-        gap: '20px',
-        alignItems: 'flex-start',
-      }}
-      onClick={(e) => e.stopPropagation()}
-    >
-      {/* Left: Image */}
-      <img
-        src={activePost.image}
-        alt={activePost.title}
-        style={{
-          width: '300px',
-          height: 'auto',
-          borderRadius: '8px',
-          objectFit: 'cover',
-          flexShrink: 0,
-        }}
-      />
-
-      {/* Right: Content */}
-      <div style={{ flex: 1 }}>
-        <h2 style={{ marginTop: 0 }}>{activePost.title}</h2>
-        <p style={{ fontSize: '14px', color: '#333', marginTop: '10px' }}>{activePost.description}</p>
-        <button
+      {/* Modal */}
+      {activePost && (
+        <div
           onClick={() => setActivePost(null)}
           style={{
-            marginTop: '20px',
-            padding: '10px 20px',
-            background: '#0077b6',
-            color: '#fff',
-            border: 'none',
-            borderRadius: '5px',
-            cursor: 'pointer',
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100vw',
+            height: '100vh',
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            padding: '10px',
+            zIndex: 9999,
+            boxSizing: 'border-box',
           }}
         >
-          Close
-        </button>
-      </div>
-    </div>
-  </div>
-)}
-
-    
+          <div
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              background: '#fff',
+              padding: '20px',
+              borderRadius: '10px',
+              maxWidth: '900px',
+              width: '100%',
+              maxHeight: '90vh',
+              overflowY: 'auto',
+              display: 'flex',
+              flexDirection: isMobile ? 'column' : 'row',
+              gap: '20px',
+              alignItems: isMobile ? 'center' : 'flex-start',
+              boxSizing: 'border-box',
+            }}
+          >
+            <img
+              src={activePost.image}
+              alt={activePost.title}
+              style={{
+                width: isMobile ? '100%' : '300px',
+                height: 'auto',
+                borderRadius: '8px',
+                objectFit: 'cover',
+                flexShrink: 0,
+              }}
+            />
+            <div style={{ flex: 1 }}>
+              <h2 style={{ marginTop: 0, fontSize: isMobile ? '18px' : '22px' }}>{activePost.title}</h2>
+              <p style={{ fontSize: '14px', color: '#333', marginTop: '10px' }}>{activePost.description}</p>
+              <button
+                onClick={() => setActivePost(null)}
+                style={{
+                  marginTop: '20px',
+                  padding: '10px 20px',
+                  background: '#0077b6',
+                  color: '#fff',
+                  border: 'none',
+                  borderRadius: '5px',
+                  cursor: 'pointer',
+                  width: isMobile ? '100%' : 'auto',
+                }}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

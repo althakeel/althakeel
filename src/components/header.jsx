@@ -2,10 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { FaFacebook, FaTwitter, FaInstagram, FaBars, FaTimes, FaChevronDown } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import BannerText from './Homepage/bannertext';
 import { useNavigate } from 'react-router-dom';
-
 
 const HomePage = () => {
   const { language, toggleLanguage } = useLanguage();
@@ -21,9 +19,9 @@ const navigate = useNavigate();
 
   const isArabic = language === 'ar';
   const videoSources = [
-    "https://res.cloudinary.com/dnpwsutir/video/upload/v1748336287/8387356-uhd_4096_2160_25fps_dkhril.mp4",
-    "https://res.cloudinary.com/dnpwsutir/video/upload/v1748351196/6648422-uhd_4096_2160_25fps_hdh96e.mp4",
-    "https://res.cloudinary.com/dnpwsutir/video/upload/v1748351183/4750039-hd_1920_1080_30fps_wbadsu.mp4"
+    "https://res.cloudinary.com/dm8z5zz5s/video/upload/v1749061794/8387356-uhd_4096_2160_25fps_dkhril_owxumi.mp4",
+    "https://res.cloudinary.com/dm8z5zz5s/video/upload/v1749061790/6648422-uhd_4096_2160_25fps_hdh96e_wqiqhi.mp4",
+    "https://res.cloudinary.com/dm8z5zz5s/video/upload/v1749061798/4750039-hd_1920_1080_30fps_wbadsu_kqqrjn.mp4"
   ];
   const ecommerceSubLinks = [
     { labelEn: 'Shop', labelAr: 'تسوق', path: '/ecommerce/shop' },
@@ -35,7 +33,7 @@ const navigate = useNavigate();
     const interval = setInterval(() => {
       setFadeVideo(prev => !prev);
       setCurrentVideo(prev => (prev + 1) % videoSources.length);
-    }, 4000); // extend to 6s total loop (3s play, 3s fade)
+    }, 4000);
     return () => clearInterval(interval);
   }, []);
 
@@ -60,7 +58,7 @@ const navigate = useNavigate();
       setFadeVideo((prev) => !prev);
       setCurrentVideo((prev) => (prev + 1) % videoSources.length);
       setUserInteracted(false); // resume auto after timeout
-    }, userInteracted ? 8000 : 6000); // slight pause if user interacted
+    }, userInteracted ? 2000 : 3000); // slight pause if user interacted
   
     setAutoSwitchTimeout(timeout);
   
@@ -145,20 +143,9 @@ const navigate = useNavigate();
   />
 </button>
   
-  {/* <div style={{ ...styles.dotsWrapper, pointerEvents: 'auto' }}>
-    {videoSources.map((_, index) => (
-      <span
-        key={index}
-        onClick={() => handleDotClick(index)}
-        style={{
-          ...styles.dot,
-          backgroundColor: currentVideo === index ? '#fff' : '#888',
-        }}
-      />
-    ))}
-  </div> */}
   
-  <button onClick={handlePrevVideo} style={styles.controlButton}>
+  
+  <button onClick={handleNextVideo} style={styles.controlButton}>
   <img
     src="https://res.cloudinary.com/dm8z5zz5s/image/upload/v1748416453/next_1_xrlyow.png"
     alt="Previous"
@@ -242,7 +229,13 @@ const navigate = useNavigate();
     
         {/* Mobile Menu */}
         {isMobile && (
-        <div style={{ ...styles.mobileMenu, ...(mobileMenuOpen ? styles.mobileMenuOpen : styles.mobileMenuClosed) }}>
+          <div
+    style={{
+      ...styles.mobileMenu,
+      ...(mobileMenuOpen ? styles.mobileMenuOpen : styles.mobileMenuClosed)
+    }}
+  >
+    
           {navLinks.map(({ labelEn, labelAr, path }, idx) => (
             path === '/ecommerce' ? (
               <div key={idx} style={styles.mobileDropdown}>
@@ -263,9 +256,18 @@ const navigate = useNavigate();
                     ))}
                     {mobileMenuOpen ? (
   <FaTimes
-    onClick={() => setMobileMenuOpen(false)}
-    style={styles.closeIcon}
-  />
+      onClick={() => setMobileMenuOpen(false)}
+      style={{
+        position: 'absolute',
+        top: 20,
+        right: 20,
+        fontSize: 24,
+        color: '#fff',
+        cursor: 'pointer',
+        zIndex: 999
+      }}
+    />
+
 ) : (
   <FaBars
     onClick={() => setMobileMenuOpen(true)}
@@ -333,7 +335,6 @@ const styles = {
     zIndex: 3,
     padding: '8px 10px',
     color: '#fff',
-    // borderBottom: '0.5px solid rgba(255, 255, 255, 0.2)',
     backgroundColor:'#1D1D1D'
   },
   topBarContent: {
@@ -380,18 +381,8 @@ const styles = {
     background: 'linear-gradient(to bottom, #1a1a1a 0%, transparent 100%)',
     fontFamily: 'Montserrat, sans-serif',
     fontWeight:'Bold',
-
-
-
-    
-
-
     alignItems: 'flex-end',
     padding: '0 40px',
-    // height: '100px',
-    
-
-    // borderBottom: '0.5px solid rgba(255, 255, 255, 0.2)',
   },
   headerContent: {
     display: 'flex',
@@ -401,20 +392,8 @@ const styles = {
   },
   
   centerNav: {
-    // position: 'absolute',
-    // left: '55%',
-    // transform: 'translateX(-50%)',
-    // display: 'flex',
-    // gap: '30px',               
-    // flexWrap: 'nowrap',        
-    // whiteSpace: 'nowrap',     
-    // zIndex: 4,
-    // overflowX: 'auto',        
-    // padding: '0 10px',         
-
-
     display: 'flex',
-  justifyContent: 'space-between',  // pushes children apart
+  justifyContent: 'space-between', 
   alignItems: 'center',
   gap: '20px',
   },
@@ -424,9 +403,6 @@ const styles = {
     alignItems: 'center',
     gap: '10px',
   },
-
-
-  
   logoContainer: {
     display: 'flex',
     alignItems: 'center',
@@ -461,7 +437,7 @@ const styles = {
   
   mobileMenu: {
     position: 'fixed',
-    top: 0,
+    top: 100,
     left: 0,
     width: '100%',
     maxHeight: '100vh',
@@ -492,6 +468,8 @@ const styles = {
     opacity: 0,
     transform: 'translateY(-100%)',
     pointerEvents: 'none',
+
+
   },
   mobileMenuHeader: {
     display: 'flex',
@@ -516,7 +494,8 @@ const styles = {
     color: '#fff',
     padding: '10px 0',
     borderBottom: '1px solid rgba(255,255,255,0.2)',
-    fontSize: '18px',
+    fontSize: '16px',
+
   },
   bannerContent: {
     position: 'absolute',
@@ -528,23 +507,7 @@ const styles = {
     color: '#fff',
     padding: '0 20px',
   },
-  // bannerTitle: {
-  //   fontSize: '48px',
-  //   marginBottom: '20px',
-  // },
-  // bannerSubtitle: {
-  //   fontSize: '20px',
-  //   marginBottom: '30px',
-  // },
-  // bannerButton: {
-  //   padding: '12px 30px',
-  //   fontSize: '16px',
-  //   backgroundColor: '#C6A664',
-  //   color: '#fff',
-  //   border: 'none',
-  //   borderRadius: '4px',
-  //   cursor: 'pointer',
-  // },
+
   bannerTextWrapper: {
     position: 'absolute',
     bottom: 0,

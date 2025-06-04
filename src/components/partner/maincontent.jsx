@@ -28,7 +28,7 @@ const PartnerWithUs = () => {
         </p>
       </section>
 
-      <WhyPartnerSection />
+      {/* <WhyPartnerSection /> */}
       <BenefitsSection />
     </div>
   );

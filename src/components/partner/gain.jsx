@@ -19,7 +19,7 @@ const benefits = [
 ];
 
 const BenefitsSection = () => (
-  <section style={{ maxWidth: 1200, margin: "0 auto", padding: "60px 20px" }}>
+  <section style={{ maxWidth: 1200, margin: "0 auto", padding: "0px 20px" }}>
     <h2
       style={{
         fontSize: 30,

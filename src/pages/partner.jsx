@@ -6,16 +6,21 @@ import PartnerForm from '../components/partner/form'
 import SubscriptionSection from '../components/subscription'
 import Partnergalary from '../components/partner/brandgalary'
 import PartnerContent from '../components/partner/maincontent'
+import FAQSection from '../components/partner/faq'
+import Connect from '../components/partner/connect'
 
 const partner = () => {
   return (
     <div>
     <Header/>
     <PartnerContent/>
+    {/* <Partnerwithus/> */}
     <Partnergalary/>
-
-    <Partnerwithus/>
+<Connect/>
+  
     <PartnerForm/>
+    <FAQSection/>
+
     <SubscriptionSection/>
     <Footer/>
     

@@ -6,11 +6,12 @@ import Box from '@mui/material/Box';
 
 export default function QuiltedImageList() {
   return (
-    <Box sx={{ mt: 6, mb: 6 }}> {/* Equal spacing top and bottom */}
+    <Box sx={{ mt: 7, mb: 9 }}> {/* Equal spacing top and bottom */}
       <Typography 
         variant="h4" 
         align="center" 
         gutterBottom
+        sx={{mb:5}}
       >
         Our Brands Portfolio
       </Typography>
