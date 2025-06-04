@@ -224,6 +224,11 @@ const navigate = useNavigate();
     
         {/* Banner Center Content */}
        
+        <div style={styles.bannerContent}>
+          <h1 style={styles.bannerTitle}>Our Brands</h1>
+     
+          {/* <about ut page redirect this button */}
+        </div>
     
         {/* Banner Text Fixed at Bottom 20% */}
       
@@ -393,7 +398,7 @@ const styles = {
   },
   mobileMenu: {
     position: 'fixed',
-    top: 0,
+    top: 100,
     left: 0,
     width: '100%',
     maxHeight: '100vh',
@@ -450,23 +455,7 @@ const styles = {
     color: '#fff',
     padding: '0 20px',
   },
-  // bannerTitle: {
-  //   fontSize: '48px',
-  //   marginBottom: '20px',
-  // },
-  // bannerSubtitle: {
-  //   fontSize: '20px',
-  //   marginBottom: '30px',
-  // },
-  // bannerButton: {
-  //   padding: '12px 30px',
-  //   fontSize: '16px',
-  //   backgroundColor: '#C6A664',
-  //   color: '#fff',
-  //   border: 'none',
-  //   borderRadius: '4px',
-  //   cursor: 'pointer',
-  // },
+
   bannerTextWrapper: {
     position: 'absolute',
     bottom: 0,
@@ -503,8 +492,8 @@ const styles = {
   },
   
   bannerTitle: {
-    fontSize: '3rem',
-    fontWeight: '800',
+    fontSize: '2rem',
+    fontWeight: '500',
     color: '#F0F0F0',
     letterSpacing: '3.5px',
     marginBottom: '5px',
@@ -533,22 +522,7 @@ const styles = {
     animation: 'fadeInUp 1.6s ease forwards',
   },
   
-  bannerButton: {
-    padding: '16px 55px',
-    fontSize: '1.1rem',
-    fontWeight: '700',
-    border: 'none',
-    borderRadius: '15px',
-    background: 'linear-gradient(135deg, #A4813D, #d4b36b, #A4813D)',
-    backgroundSize: '300% 300%',
-    color: '#fff',
-    cursor: 'pointer',
-    boxShadow: '0 15px 40px rgba(164,129,61,0.2)',
-    transition: 'all 0.5s ease',
-    animation: 'fadeInUp 2s ease forwards',
-    letterSpacing: '1px',
-  },
-  
+ 
   bannerButtonHover: {
     transform: 'scale(1.1)',
     backgroundPosition: 'right center',
@@ -579,29 +553,8 @@ const styles = {
     opacity: 1,
     transition: 'transform 0.6s ease, opacity 0.6s ease', // 👈 smooth animation here
   },
-  videoControls: {
-    position: 'absolute',
-    top: '50%',
-    left: 0,
-    width: '100%',
-    transform: 'translateY(-50%)',
-    zIndex: 4,
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    pointerEvents: 'none', // allow video clicks underneath except buttons
-  },
-  controlButton: {
-    background: 'rgba(255, 255, 255, 0.2)',
-    color: '#fff',
-    border: 'none',
-    fontSize: '32px',
-    padding: '10px 16px',
-    cursor: 'pointer',
-    borderRadius: '50%',
-    pointerEvents: 'auto', // enable clicking
-    margin: '0 20px',
-  },
+
+ 
   dotsWrapper: {
     display: 'flex',
     gap: '10px',

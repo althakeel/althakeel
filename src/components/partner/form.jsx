@@ -85,7 +85,7 @@ const PartnerForm = () => {
 const styles = {
   wrapper: {
     backgroundColor: '#f5f5f5',
-    padding: '60px 20px',
+    padding: '60px 20px 20px',
     display: 'flex',
     justifyContent: 'center',
   },

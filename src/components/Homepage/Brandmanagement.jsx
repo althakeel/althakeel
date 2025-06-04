@@ -11,7 +11,7 @@ const slides = [
       { bold: "Marketplace Onboarding:", text: "List and optimize products on major UAE e-commerce platforms (Amazon.ae, Noon) for visibility and conversion." },
       { bold: "Marketing & Growth:", text: "Execute omnichannel campaigns (social media, email, influencer partnerships) tailored to UAE consumer behaviors." },
     ],
-    image: "https://res.cloudinary.com/dm8z5zz5s/image/upload/v1749038837/4_n3o0ps.webp",
+    image: "https://res.cloudinary.com/dm8z5zz5s/image/upload/v1749066176/4_1_vykdyn.webp",
   },
   {
     title: "Brands Acquisition ",
@@ -22,7 +22,7 @@ const slides = [
       { bold: "Acquisition Structuring:", text: "Negotiate full or partial equity deals, including performance-based earn-outs." },
       { bold: "Post-Acquisition Integration:", text: "Consolidate operations (logistics, procurement) under Althakeel’s framework to unlock efficiencies. " },
     ],
-    image: "https://res.cloudinary.com/dm8z5zz5s/image/upload/v1749038836/3_yn8rtz.webp",
+    image: "https://res.cloudinary.com/dm8z5zz5s/image/upload/v1749066175/3_ac9jcp.webp",
   },
   {
     title: "Brands Partnerships ",
@@ -33,7 +33,7 @@ const slides = [
       { bold: "Go-to-Market Planning: ", text: "Localize branding and coordinate logistics for seamless UAE launch.  " },
       { bold: "Ongoing Collaboration: ", text: " Implement co-marketing initiatives, joint events, and performance tracking to drive continuous growth." },
     ],
-    image: "https://res.cloudinary.com/dm8z5zz5s/image/upload/v1749033450/1_jquetq.webp",
+    image: "https://res.cloudinary.com/dm8z5zz5s/image/upload/v1749066175/1_2_fqcipr.webp",
   },
   {
     title: "Niched Marketplace  ",

@@ -5,14 +5,16 @@ const Map = () => {
     <div
       style={{
         width: '100%',
+        padding: '0 16px',
+        boxSizing: 'border-box',
         display: 'flex',
         justifyContent: 'center',
-        boxSizing: 'border-box',
       }}
     >
       <div
         style={{
           width: '100%',
+          maxWidth: '768px',
           height: '400px',
           position: 'relative',
         }}
@@ -23,9 +25,8 @@ const Map = () => {
           style={{
             width: '100%',
             height: '100%',
-            filter: 'grayscale(80%) brightness(100%)',
-
             border: 0,
+            filter: 'grayscale(80%) brightness(100%)',
           }}
           allowFullScreen
           loading="lazy"

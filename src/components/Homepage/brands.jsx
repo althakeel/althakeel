@@ -1,58 +1,46 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
 
-const cardBaseStyle = {
-  background: '#fff',
-  boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
-  borderRadius: '12px',
-  padding: '10px 10px',
-  minWidth: '100px',
-  textAlign: 'center',
-  transition: 'transform 0.2s, box-shadow 0.2s',
-  cursor: 'pointer',
-};
-
-const specialCardStyle = {
-  background: '#fff',
-  borderRadius: '16px',
-  padding: '14px',
-};
-
-const hoverEffect = {
-  transform: 'translateY(-5px)',
-  boxShadow: '0 8px 20px rgba(0,0,0,0.15)',
-};
-
 const BrandCard = ({ logo, alt, width = '140px', height = '80px', special }) => {
   const [isHovered, setIsHovered] = useState(false);
 
+  const cardStyle = {
+    background: '#fff',
+    boxShadow: isHovered
+      ? '0 8px 20px rgba(0,0,0,0.15)'
+      : '0 4px 10px rgba(0,0,0,0.1)',
+    borderRadius: special ? '16px' : '12px',
+    padding: special ? '14px' : '10px',
+    minWidth: '120px',
+    textAlign: 'center',
+    transition: 'transform 0.2s, box-shadow 0.2s',
+    cursor: 'pointer',
+    transform: isHovered ? 'translateY(-5px)' : 'none',
+  };
+
+  const imageStyle = {
+    width,
+    height,
+    objectFit: 'contain',
+  };
+
   return (
     <div
-      style={{
-        ...cardBaseStyle,
-        ...(special ? specialCardStyle : {}),
-        ...(isHovered ? hoverEffect : {}),
-      }}
+      style={cardStyle}
+      className="brand-card"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <img
-        src={logo}
-        alt={alt}
-        style={{
-          width,
-          height,
-          objectFit: 'contain',
-        }}
-      />
+      <img src={logo} alt={alt} style={imageStyle} />
     </div>
   );
 };
 
 const Brands = () => {
-  const { language } = useLanguage(); // Get selected language
+  const { language } = useLanguage();
+  const isArabic = language === 'ar';
 
-  const t = {
+  const translations = {
     en: {
       existIn: 'We Exist In',
       workWith: 'Brands We Work With',
@@ -63,9 +51,7 @@ const Brands = () => {
     },
   };
 
-  const isArabic = language === 'ar';
-
-  const existIn = [
+  const partners = [
     { name: 'Amazon', logo: 'https://res.cloudinary.com/dnpwsutir/image/upload/v1748342618/1-removebg-preview_e8pbbv.png' },
     { name: 'Noon', logo: 'https://res.cloudinary.com/dnpwsutir/image/upload/v1748342619/2-removebg-preview_fdp6ku.png' },
     { name: 'Namshi', logo: 'https://res.cloudinary.com/dnpwsutir/image/upload/v1748342647/9-removebg-preview_z32bqc.png' },
@@ -80,7 +66,7 @@ const Brands = () => {
     { name: 'Kibson', logo: 'https://res.cloudinary.com/dnpwsutir/image/upload/v1748339641/logo-horizontal-removebg-preview_yuzfpv.png' },
   ];
 
-  const brandLogos = [
+  const brands = [
     { name: 'Dyson', logo: 'https://res.cloudinary.com/dnpwsutir/image/upload/v1748339173/5-removebg-preview_fuan0p.png' },
     { name: 'Apple', logo: 'https://res.cloudinary.com/dnpwsutir/image/upload/v1748339179/7-removebg-preview_jl3lm7.png' },
     { name: 'Joyroom', logo: 'https://res.cloudinary.com/dnpwsutir/image/upload/v1748339277/ec744cd6de3dd034388256af9917e235_b3uv5q.webp' },
@@ -94,70 +80,75 @@ const Brands = () => {
   ];
 
   return (
-    <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '20px 20px' }}>
-      {/* We Exist In */}
-      <section style={{ marginBottom: '50px' }}>
-        <h2
-          style={{
-            fontSize: '35px',
-            marginBottom: '30px',
-            textAlign: 'center',
-            direction: isArabic ? 'rtl' : 'ltr',
-            fontFamily: 'Montserrat, sans-serif',
-            fontWeight: 500,
-          }}
-        >
-          {t[language].existIn}
-        </h2>
-        <div
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-            gap: '10px',
-            
-          }}
-        >
-          {existIn.map((store, index) => (
-            <BrandCard key={index} logo={store.logo} alt={store.name} />
-          ))}
-        </div>
-      </section>
+    <div className="brands-container">
+      <style>{`
+        .brands-container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 20px;
+        }
+        .section-title {
+          font-size: 35px;
+          margin-bottom: 30px;
+          text-align: center;
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 500;
+        }
+        .brands-grid {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 15px;
+        }
+        @media (max-width: 768px) {
+          .brands-container { padding: 15px; }
+          .section-title { font-size: 28px; }
+          .brand-card img {
+            width: 100px !important;
+            height: 60px !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .brands-container { padding: 10px; }
+          .section-title { font-size: 22px; }
+          .brand-card img {
+            width: 90px !important;
+            height: 50px !important;
+          }
+        }
+      `}</style>
 
-      {/* Brands We Work With */}
-      <section>
-        <h2
-          style={{
-            fontSize: '35px',
-            marginBottom: '30px',
-            textAlign: 'center',
-            direction: isArabic ? 'rtl' : 'ltr',
-            fontFamily: 'Montserrat, sans-serif',
-            fontWeight: 500,          }}
-        >
-          {t[language].workWith}
-        </h2>
-        <div
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-            gap: '25px',
-          }}
-        >
-          {brandLogos.map((brand, index) => (
-            <BrandCard
-              key={index}
-              logo={brand.logo}
-              alt={brand.name}
-              width="130px"
-              special
-            />
-          ))}
-        </div>
-      </section>
+      <Section title={translations[language].existIn} isArabic={isArabic}>
+        {partners.map((partner, index) => (
+          <BrandCard key={index} logo={partner.logo} alt={partner.name} />
+        ))}
+      </Section>
+
+      <Section title={translations[language].workWith} isArabic={isArabic}>
+        {brands.map((brand, index) => (
+          <BrandCard
+            key={index}
+            logo={brand.logo}
+            alt={brand.name}
+            width="160px"
+            special
+          />
+        ))}
+      </Section>
     </div>
   );
 };
+
+const Section = ({ title, isArabic, children }) => (
+  <section style={{ marginBottom: '50px' }}>
+    <h2
+      className="section-title"
+      style={{ direction: isArabic ? 'rtl' : 'ltr' }}
+    >
+      {title}
+    </h2>
+    <div className="brands-grid">{children}</div>
+  </section>
+);
 
 export default Brands;

@@ -224,7 +224,11 @@ const navigate = useNavigate();
       )}
     
         {/* Banner Center Content */}
-       
+        <div style={styles.bannerContent}>
+          <h1 style={styles.bannerTitle}>Our Brands</h1>
+     
+          {/* <about ut page redirect this button */}
+        </div>
     
         {/* Banner Text Fixed at Bottom 20% */}
       
@@ -394,7 +398,7 @@ const styles = {
   },
   mobileMenu: {
     position: 'fixed',
-    top: 0,
+    top: 100,
     left: 0,
     width: '100%',
     maxHeight: '100vh',
@@ -504,8 +508,8 @@ const styles = {
   },
   
   bannerTitle: {
-    fontSize: '3rem',
-    fontWeight: '800',
+    fontSize: '2rem',
+    fontWeight: '500',
     color: '#F0F0F0',
     letterSpacing: '3.5px',
     marginBottom: '5px',

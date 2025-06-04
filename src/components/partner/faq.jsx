@@ -1,21 +1,24 @@
 import React, { useState } from "react";
 
-const features = [
+const faqs = [
   {
-    title: "Established Infrastructure",
-    text: "Full-scale logistics and years of operational excellence make scaling seamless.",
+    question: "What infrastructure does Al Thakeel offer to partners?",
+    answer:
+      "Al Thakeel provides a full-scale logistics network and years of operational excellence, ensuring seamless scaling for our partners.",
   },
   {
-    title: "Multi-Brand Synergy",
-    text: "We manage brands like Nexso, Store 1920, and Armed — driven by market insight.",
+    question: "Which brands are managed by Al Thakeel?",
+    answer:
+      "We manage a diverse portfolio of brands, including Nexso, Store 1920, and Armed, all driven by deep market insights.",
   },
   {
-    title: "Proven Growth Engine",
-    text: "We accelerate expansion through data-driven strategies and multichannel marketing.",
+    question: "How does Al Thakeel drive growth for its partners?",
+    answer:
+      "Our proven growth engine accelerates expansion through data-driven strategies and multichannel marketing approaches.",
   },
 ];
 
-const WhyPartnerSection = () => {
+const FAQSection = () => {
   const [activeIndex, setActiveIndex] = useState(null);
 
   const toggle = (index) => {
@@ -27,7 +30,7 @@ const WhyPartnerSection = () => {
       style={{
         width: "100%",
         background: "#f5f5f5",
-        padding: "0px 16px 0",
+        padding: "0px 16px 60px ",
         boxSizing: "border-box",
       }}
     >
@@ -48,7 +51,7 @@ const WhyPartnerSection = () => {
             padding: "0 1rem",
           }}
         >
-          Why Partner With Al Thakeel?
+          Frequently Asked Questions
         </h2>
 
         <div
@@ -58,7 +61,7 @@ const WhyPartnerSection = () => {
             overflow: "hidden",
           }}
         >
-          {features.map((item, idx) => {
+          {faqs.map((item, idx) => {
             const isOpen = idx === activeIndex;
             return (
               <div
@@ -86,7 +89,7 @@ const WhyPartnerSection = () => {
                     alignItems: "center",
                   }}
                 >
-                  {item.title}
+                  {item.question}
                   <span style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", marginLeft: 10 }}>
                     {isOpen ? "–" : "+"}
                   </span>
@@ -101,7 +104,7 @@ const WhyPartnerSection = () => {
                       backgroundColor: "#fff",
                     }}
                   >
-                    {item.text}
+                    {item.answer}
                   </div>
                 )}
               </div>
@@ -113,4 +116,4 @@ const WhyPartnerSection = () => {
   );
 };
 
-export default WhyPartnerSection;
+export default FAQSection;

@@ -83,15 +83,27 @@ const ContactSection = () => {
   const [state, handleSubmit] = useForm("xzzgbwzb");
 
   return (
-    <section style={{ background: '#f9f9f9', padding: '4rem 0' }} dir={dir}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1rem', textAlign: isArabic ? 'right' : 'left' }}>
+    <section style={{ background: '#f9f9f9', padding: '4rem 1rem', boxSizing: 'border-box' }} dir={dir}>
+      <div style={{
+        maxWidth: '1200px',
+        width: '100%',
+        margin: '0 auto',
+        boxSizing: 'border-box',
+        textAlign: isArabic ? 'right' : 'left'
+      }}>
         <div style={{ marginBottom: '2rem' }}>
           <h2 style={{ fontSize: '2rem', fontWeight: 'bold' }}>{t[language].title}</h2>
           <p style={{ color: '#666' }}>{t[language].subtitle}</p>
         </div>
 
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem', justifyContent: 'space-between' }}>
-          <div style={{ flex: '1', minWidth: '280px' }}>
+        <div style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          gap: '2rem',
+          justifyContent: 'space-between'
+        }}>
+          {/* Contact Info */}
+          <div style={{ flex: '1 1 300px', minWidth: 0 }}>
             {contactItems.map((item, index) => (
               <div
                 key={index}
@@ -108,7 +120,7 @@ const ContactSection = () => {
                 }}
                 onClick={() => item.link && window.open(item.link, '_blank')}
               >
-                <img src={item.icon} alt={item.label} style={{ width: '40px', height: '40px' }} />
+                <img src={item.icon} alt={item.label} style={{ width: '40px', height: '40px', flexShrink: 0 }} />
                 <div>
                   <strong style={{ fontSize: '1.1rem' }}>{item.label}</strong>
                   <div style={{ fontSize: '0.95rem', color: '#444', marginTop: '4px' }}>{item.info}</div>
@@ -117,22 +129,23 @@ const ContactSection = () => {
             ))}
           </div>
 
-          <div style={{ flex: '1', minWidth: '300px' }}>
+          {/* Contact Form */}
+          <div style={{ flex: '1 1 300px', minWidth: 0 }}>
             <form onSubmit={handleSubmit}>
               <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 600 }}>{t[language].nameLabel}</label>
-              <input type="text" name="name" placeholder={t[language].namePlaceholder} required style={{ width: '100%', padding: '0.75rem 1rem', marginBottom: '1.2rem', borderRadius: '6px', border: '1px solid #ccc' }} />
+              <input type="text" name="name" placeholder={t[language].namePlaceholder} required style={inputStyle} />
               <ValidationError prefix="Name" field="name" errors={state.errors} />
 
               <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 600 }}>{t[language].emailLabel}</label>
-              <input type="email" name="email" placeholder={t[language].emailPlaceholder} required style={{ width: '100%', padding: '0.75rem 1rem', marginBottom: '1.2rem', borderRadius: '6px', border: '1px solid #ccc' }} />
+              <input type="email" name="email" placeholder={t[language].emailPlaceholder} required style={inputStyle} />
               <ValidationError prefix="Email" field="email" errors={state.errors} />
 
               <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 600 }}>{t[language].messageLabel}</label>
-              <textarea name="message" rows="5" placeholder={t[language].messagePlaceholder} required style={{ width: '100%', padding: '0.75rem 1rem', marginBottom: '1.2rem', borderRadius: '6px', border: '1px solid #ccc' }}></textarea>
+              <textarea name="message" rows="5" placeholder={t[language].messagePlaceholder} required style={{ ...inputStyle, resize: 'vertical' }}></textarea>
               <ValidationError prefix="Message" field="message" errors={state.errors} />
 
               <div style={{ marginBottom: '1.2rem' }}>
-                <div style={{ border: '1px solid #d3d3d3', borderRadius: '6px', padding: '12px 16px', backgroundColor: '#f9f9f9', height: '78px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', boxShadow: '0 0 5px rgba(0,0,0,0.1)' }}>
+                <div style={recaptchaBox}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <input type="checkbox" required style={{ width: '20px', height: '20px', accentColor: '#4285f4' }} />
                     <label style={{ fontSize: '14px', color: '#202124' }}>{t[language].robotCheck}</label>
@@ -141,41 +154,72 @@ const ContactSection = () => {
                     <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" alt="reCAPTCHA" style={{ height: '30px', marginBottom: '2px' }} />
                     <div>
                       <span>reCAPTCHA</span><br />
-                      <a href="./privacypolicy" style={{ color: '#70757a', textDecoration: 'underline' }}>Privacy</a> - <a href="./terms&condition" style={{ color: '#70757a', textDecoration: 'underline' }}>Terms</a>
+                      <a href="./privacypolicy" style={recaptchaLink}>Privacy</a> - <a href="./terms&condition" style={recaptchaLink}>Terms</a>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <button type="submit" disabled={state.submitting} style={{ background: '#000', color: '#fff', border: 'none', padding: '0.9rem 2rem', borderRadius: '6px', fontSize: '1rem', fontWeight: 'bold', cursor: 'pointer' }}>{t[language].send}</button>
+              <button type="submit" disabled={state.submitting} style={submitButton}>{t[language].send}</button>
               {state.succeeded && <p style={{ color: 'green', marginTop: '1rem' }}>Message sent successfully!</p>}
             </form>
+
             <div style={{ display: 'flex', justifyContent: 'center', marginTop: '2rem' }}>
-          <p style={{ maxWidth: '1200px', fontSize: '12px', color: '#444', lineHeight: 1.6, textAlign:'left' }}>
-            {t[language].finalNote} <br />
-            {/* <a href="/locations" style={{ color: '#007bff', textDecoration: 'underline' }}>{t[language].nearestStore}</a>,{' '} */}
-            {/* <a href="/media-centre" style={{ color: '#007bff', textDecoration: 'underline' }}>{t[language].mediaCentre}</a>,{' '} */}
-            <a href="/careers" style={{ color: '#007bff', textDecoration: 'underline' }}>{t[language].careers}</a>,{' '}
-            {t[language].vendorContact}{' '}
-            <a href={`mailto:${t[language].vendorEmail}`} style={{ color: '#007bff', textDecoration: 'underline' }}>{t[language].vendorEmail}</a> {t[language].ifVendor}
-          </p>
-        </div>
+              <p style={{
+                maxWidth: '100%',
+                fontSize: '12px',
+                color: '#444',
+                lineHeight: 1.6,
+                textAlign: isArabic ? 'right' : 'left'
+              }}>
+                {t[language].finalNote} <br />
+                <a href="/careers" style={recaptchaLink}>{t[language].careers}</a>,{' '}
+                {t[language].vendorContact}{' '}
+                <a href={`mailto:${t[language].vendorEmail}`} style={recaptchaLink}>{t[language].vendorEmail}</a> {t[language].ifVendor}
+              </p>
+            </div>
           </div>
         </div>
-
-        {/* <div style={{ display: 'flex', justifyContent: 'center', marginTop: '2rem' }}>
-          <p style={{ maxWidth: '1200px', fontSize: '12px', color: '#444', lineHeight: 1.6, textAlign:'center' }}>
-            {t[language].finalNote} <br />
-            <a href="/locations" style={{ color: '#007bff', textDecoration: 'underline' }}>{t[language].nearestStore}</a>,{' '}
-            <a href="/media-centre" style={{ color: '#007bff', textDecoration: 'underline' }}>{t[language].mediaCentre}</a>,{' '}
-            <a href="/careers" style={{ color: '#007bff', textDecoration: 'underline' }}>{t[language].careers}</a>,{' '}
-            {t[language].vendorContact}{' '}
-            <a href={`mailto:${t[language].vendorEmail}`} style={{ color: '#007bff', textDecoration: 'underline' }}>{t[language].vendorEmail}</a> {t[language].ifVendor}
-          </p>
-        </div> */}
       </div>
     </section>
   );
+};
+
+const inputStyle = {
+  width: '100%',
+  padding: '0.75rem 1rem',
+  marginBottom: '1.2rem',
+  borderRadius: '6px',
+  border: '1px solid #ccc',
+  boxSizing: 'border-box'
+};
+
+const recaptchaBox = {
+  border: '1px solid #d3d3d3',
+  borderRadius: '6px',
+  padding: '12px 16px',
+  backgroundColor: '#f9f9f9',
+  height: '78px',
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  boxShadow: '0 0 5px rgba(0,0,0,0.1)'
+};
+
+const recaptchaLink = {
+  color: '#007bff',
+  textDecoration: 'underline'
+};
+
+const submitButton = {
+  background: '#000',
+  color: '#fff',
+  border: 'none',
+  padding: '0.9rem 2rem',
+  borderRadius: '6px',
+  fontSize: '1rem',
+  fontWeight: 'bold',
+  cursor: 'pointer'
 };
 
 export default ContactSection;
