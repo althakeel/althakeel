@@ -17,7 +17,7 @@ const BuyNow = () => {
     <div
       dir={isRTL ? 'rtl' : 'ltr'}
       style={{
-        backgroundColor: '#000',
+        backgroundColor: '#fff',
         padding: '40px 20px 0px',
         fontFamily: 'Montserrat, sans-serif',
         display: 'flex',
@@ -55,7 +55,7 @@ const BuyNow = () => {
               display: 'inline-block',
               textDecoration: 'none',
               borderBottom: '2px solid #1a2b44',
-              color: '#fff',
+              color: '#000',
               fontWeight: '500',
               fontSize: '15px',
             }}
@@ -100,14 +100,14 @@ const BuyNow = () => {
             alt="Store 1920 Logo"
             style={{ width: '120px', marginBottom: '30px' }}
           />
-          <h3 style={{ fontWeight: '600', marginBottom: '16px', color: '#fff' }}>
+          <h3 style={{ fontWeight: '600', marginBottom: '16px', color: '#000' }}>
           {isRTL ?'' : 'Shop More, Spend Less. '}
           </h3>
           <p
             style={{
               fontSize: '16px',
               lineHeight: '1.6',
-              color: '#fff',
+              color: '#000',
               fontFamily: 'Montserrat, sans-serif',
             }}
           >
@@ -126,7 +126,7 @@ const BuyNow = () => {
               display: 'inline-block',
               textDecoration: 'none',
               borderBottom: '2px solid #1a2b44',
-              color: '#fff',
+              color: '#000',
               fontWeight: '500',
               fontSize: '15px',
               fontFamily: 'Montserrat, sans-serif',
