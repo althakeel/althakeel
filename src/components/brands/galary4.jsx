@@ -1,11 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
 
 const Galary1 = () => {
   const { language } = useLanguage();
   const isRTL = language === 'ar';
 
- 
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect mobile screen width
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    handleResize(); // initial check
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   const images = [
     'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1748764715/A2_bk9w8w.webp',
     'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1748773490/A3_z6zdw4.webp',
@@ -13,49 +24,40 @@ const Galary1 = () => {
     'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1748764716/A6_d4viql.webp',
   ];
 
+  const mobileImage = 'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1749129080/M2_e4iqy5.webp';
+
   const heading = isRTL
     ? 'يقوم الفريق الإبداعي في زارا هوم بتصميم كل مجموعة وفقًا لأحدث صيحات الموضة.'
     : 'Our collections are carefully designed to reflect the latest fashion trends.';
-
 
   const subtext = isRTL
     ? ' نؤمن إن كل صورة لها حكاية. استمتع بالمنظر. '
     : 'We believe every image tells a story. Enjoy the view.';
 
   return (
-    <div dir={isRTL ? 'rtl' : 'ltr'} style={{ backgroundColor: '#000', padding: '40px 20px' }}>
-      {/* Top Heading Section */}
-      <div
-        style={{
-          maxWidth: '1000px',
-          margin: '0 auto',
-          alignItems: 'center', // ✅ horizontally center content
-          textAlign: 'center',           color: '#fff',
-          marginBottom: '40px',
-          fontFamily:'Montserrat, sans-serif',
-        }}
-      >
-        <h2 style={{ fontSize: '25px', marginBottom: '16px', fontWeight: 500 ,fontFamily:'Montserrat, sans-serif',}}>
-          {heading}
-        </h2>
-        <p style={{ fontSize: '16px',fontFamily:'Montserrat, sans-serif', }}>
-          {subtext}
-        </p>
+    <div dir={isRTL ? 'rtl' : 'ltr'} style={styles.section}>
+      {/* Heading */}
+      <div style={styles.heading}>
+        <h2 style={styles.title}>{heading}</h2>
+        <p style={styles.subtext}>{subtext}</p>
       </div>
 
-      {/* Image Gallery Section */}
+      {/* Image Gallery */}
       <div style={styles.wrapper}>
         <div style={styles.container}>
-          <div style={{ ...styles.grid, direction: isRTL ? 'rtl' : 'ltr' }}>
-            {images.map((src, index) => (
-              <img
-                key={index}
-                src={src}
-                alt={`Gallery ${index + 1}`}
-                style={styles.image}
-              />
-            ))}
-          </div>
+          {isMobile ? (
+            <img
+              src={mobileImage}
+              alt="Mobile Gallery"
+              style={{ ...styles.image, maxHeight: '500px' }}
+            />
+          ) : (
+            <div style={{ ...styles.grid, direction: isRTL ? 'rtl' : 'ltr' }}>
+              {images.map((src, index) => (
+                <img key={index} src={src} alt={`Gallery ${index + 1}`} style={styles.image} />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>
@@ -63,13 +65,31 @@ const Galary1 = () => {
 };
 
 const styles = {
+  section: {
+    backgroundColor: '#000',
+    padding: '40px 20px',
+    fontFamily: 'Montserrat, sans-serif',
+  },
+  heading: {
+    maxWidth: '1000px',
+    margin: '0 auto 40px',
+    textAlign: 'center',
+    color: '#000',
+  },
+  title: {
+    fontSize: '25px',
+    marginBottom: '16px',
+    fontWeight: 500,
+  },
+  subtext: {
+    fontSize: '16px',
+  },
   wrapper: {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#000',
     paddingBottom: '60px',
-    fontFamily:'Montserrat, sans-serif',
   },
   container: {
     maxWidth: '1000px',
@@ -83,7 +103,6 @@ const styles = {
   image: {
     width: '100%',
     height: '100%',
-    maxHeight: '500px',
     objectFit: 'cover',
     borderRadius: '0px',
   },

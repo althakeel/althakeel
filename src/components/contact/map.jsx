@@ -5,7 +5,7 @@ const Map = () => {
     <div
       style={{
         width: '100%',
-        padding: '0 16px',
+        padding: '0',
         boxSizing: 'border-box',
         display: 'flex',
         justifyContent: 'center',
@@ -14,9 +14,11 @@ const Map = () => {
       <div
         style={{
           width: '100%',
-          maxWidth: '768px',
+          maxWidth: '100%',
           height: '400px',
+          margin:'0 auto',
           position: 'relative',
+
         }}
       >
         <iframe
