@@ -24,7 +24,7 @@ const Galary1 = () => {
     'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1748766984/V2_jwjzog.webp',
   ];
 
-  const mobileImage = 'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1748766870/S6_iexlg5.webp';
+  const mobileImage = 'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1749134228/M5_k58lww.webp';
 
   const heading = isRTL
     ? 'يقوم الفريق الإبداعي في زارا هوم بتصميم كل مجموعة وفقًا لأحدث صيحات الموضة.'
