@@ -225,7 +225,7 @@ const navigate = useNavigate();
         {/* Banner Center Content */}
        
         <div style={styles.bannerContent}>
-          <h1 style={styles.bannerTitle}>Our Brands</h1>
+          <h1 style={styles.bannerTitle}>About Us</h1>
      
           {/* <about ut page redirect this button */}
         </div>
