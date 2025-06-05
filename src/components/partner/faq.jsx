@@ -1,24 +1,48 @@
 import React, { useState } from "react";
+import { useLanguage } from "../../context/LanguageContext";
 
-const faqs = [
-  {
-    question: "What infrastructure does Al Thakeel offer to partners?",
-    answer:
-      "Al Thakeel provides a full-scale logistics network and years of operational excellence, ensuring seamless scaling for our partners.",
-  },
-  {
-    question: "Which brands are managed by Al Thakeel?",
-    answer:
-      "We manage a diverse portfolio of brands, including Nexso, Store 1920, and Armed, all driven by deep market insights.",
-  },
-  {
-    question: "How does Al Thakeel drive growth for its partners?",
-    answer:
-      "Our proven growth engine accelerates expansion through data-driven strategies and multichannel marketing approaches.",
-  },
-];
+const faqsContent = {
+  en: [
+    {
+      question: "What infrastructure does Al Thakeel offer to partners?",
+      answer:
+        "Al Thakeel provides a full-scale logistics network and years of operational excellence, ensuring seamless scaling for our partners.",
+    },
+    {
+      question: "Which brands are managed by Al Thakeel?",
+      answer:
+        "We manage a diverse portfolio of brands, including Nexso, Store 1920, and Armed, all driven by deep market insights.",
+    },
+    {
+      question: "How does Al Thakeel drive growth for its partners?",
+      answer:
+        "Our proven growth engine accelerates expansion through data-driven strategies and multichannel marketing approaches.",
+    },
+  ],
+  ar: [
+    {
+      question: "ما هي البنية التحتية التي تقدمها الثقيل لشركائها؟",
+      answer:
+        "توفر الثقيل شبكة لوجستية متكاملة وسنوات من التميز التشغيلي، مما يضمن التوسع السلس لشركائنا.",
+    },
+    {
+      question: "ما هي العلامات التجارية التي تديرها الثقيل؟",
+      answer:
+        "ندير مجموعة متنوعة من العلامات التجارية، بما في ذلك Nexso وStore 1920 وArmed، مدفوعة بفهم عميق للسوق.",
+    },
+    {
+      question: "كيف تسهم الثقيل في نمو شركائها؟",
+      answer:
+        "يعزز محرك النمو الخاص بنا التوسع من خلال استراتيجيات قائمة على البيانات وتسويق متعدد القنوات.",
+    },
+  ],
+};
 
 const FAQSection = () => {
+  const { language } = useLanguage(); // 'en' or 'ar'
+  const isArabic = language === "ar";
+  const faqs = faqsContent[language];
+
   const [activeIndex, setActiveIndex] = useState(null);
 
   const toggle = (index) => {
@@ -30,8 +54,10 @@ const FAQSection = () => {
       style={{
         width: "100%",
         background: "#f5f5f5",
-        padding: "0px 16px 60px ",
+        padding: "0px 16px 60px",
         boxSizing: "border-box",
+        direction: isArabic ? "rtl" : "ltr",
+        fontFamily: isArabic ? "'Tajawal', sans-serif" : '"Montserrat", sans-serif',
       }}
     >
       <div
@@ -51,7 +77,7 @@ const FAQSection = () => {
             padding: "0 1rem",
           }}
         >
-          Frequently Asked Questions
+          {isArabic ? "الأسئلة الشائعة" : "Frequently Asked Questions"}
         </h2>
 
         <div
@@ -87,10 +113,11 @@ const FAQSection = () => {
                     display: "flex",
                     justifyContent: "space-between",
                     alignItems: "center",
+                    direction: "inherit",
                   }}
                 >
-                  {item.question}
-                  <span style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", marginLeft: 10 }}>
+                  <span>{item.question}</span>
+                  <span style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", marginInlineStart: 10 }}>
                     {isOpen ? "–" : "+"}
                   </span>
                 </button>

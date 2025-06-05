@@ -74,7 +74,7 @@ const styles = {
     maxWidth: '1000px',
     margin: '0 auto 40px',
     textAlign: 'center',
-    color: '#000',
+    color: '#fff',
   },
   title: {
     fontSize: '25px',
