@@ -63,7 +63,7 @@ const LogoStorySection = () => {
   };
 
   const desktopVideo = 'https://res.cloudinary.com/dm8z5zz5s/video/upload/v1748515793/Ankh_Animation_2_Compressed_kxp2en.mp4';
-  const mobileVideo = 'https://res.cloudinary.com/dm8z5zz5s/video/upload/v1749067111/Ankh_Animation_3_Compressed_keqp9c.mp4';
+  const mobileVideo = 'https://res.cloudinary.com/dm8z5zz5s/video/upload/v1749129270/Ankh_Animation_4_Compressed_lrgcku.mp4';
 
   return (
     <div style={containerStyle}>

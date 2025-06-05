@@ -22,7 +22,7 @@ const slides = [
       { bold: "Acquisition Structuring:", text: "Negotiate full or partial equity deals, including performance-based earn-outs." },
       { bold: "Post-Acquisition Integration:", text: "Consolidate operations (logistics, procurement) under Althakeel’s framework to unlock efficiencies. " },
     ],
-    image: "https://res.cloudinary.com/dm8z5zz5s/image/upload/v1749066175/3_ac9jcp.webp",
+    image: "https://res.cloudinary.com/dm8z5zz5s/image/upload/v1749130433/3_z5lhq0.webp",
   },
   {
     title: "Brands Partnerships ",

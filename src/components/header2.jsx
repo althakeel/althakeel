@@ -222,7 +222,6 @@ const navigate = useNavigate();
         </div>
       )}
     
-        {/* Banner Center Content */}
        
         <div style={styles.bannerContent}>
           <h1 style={styles.bannerTitle}>About Us</h1>
@@ -230,7 +229,7 @@ const navigate = useNavigate();
           {/* <about ut page redirect this button */}
         </div>
     
-        {/* Banner Text Fixed at Bottom 20% */}
+     
       
       </div>
     );
@@ -294,11 +293,8 @@ const styles = {
     fontSize: '18px',
   },
   languageButton: {
-    // backgroundColor: 'rgba(0, 0, 0, 0.4)',
     backgroundColor:'transparent',
     border: "1px solid #777",
-
-    // border: 'none',
     color: '#fff',
     padding: '4px 10px',
     cursor: 'pointer',
@@ -314,18 +310,9 @@ const styles = {
     background: 'linear-gradient(to bottom, #1a1a1a 0%, transparent 100%)',
     fontFamily: 'Montserrat, sans-serif',
     fontWeight:'Bold',
-
-
-
-    
-
-
     alignItems: 'flex-end',
     padding: '0 40px',
-    // height: '100px',
-    
 
-    // borderBottom: '0.5px solid rgba(255, 255, 255, 0.2)',
   },
   headerContent: {
     display: 'flex',
@@ -345,7 +332,6 @@ const styles = {
     // zIndex: 4,
     // overflowX: 'auto',        
     // padding: '0 10px',         
-
 
     display: 'flex',
   justifyContent: 'space-between',  // pushes children apart
@@ -551,7 +537,7 @@ const styles = {
     zIndex: 10,
     transform: 'translateY(0)',
     opacity: 1,
-    transition: 'transform 0.6s ease, opacity 0.6s ease', // 👈 smooth animation here
+    transition: 'transform 0.6s ease, opacity 0.6s ease', 
   },
 
  
@@ -573,7 +559,7 @@ const styles = {
   },
   
   dropdownMenu: {
-    position: 'absolute',
+    position: 'fixed',
     top: '100%',
     left: 0,
     backgroundColor: 'rgba(0, 0, 0, 0.5)',

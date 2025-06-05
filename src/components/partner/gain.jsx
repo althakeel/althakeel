@@ -2,17 +2,17 @@ import React from "react";
 
 const benefits = [
   {
-    image: "https://res.cloudinary.com/dm8z5zz5s/image/upload/v1748775686/Blog_Cover_yzuexj.webp",
+    image: "https://res.cloudinary.com/dm8z5zz5s/image/upload/v1749131029/1_cpccbe.webp",
     title: "Global Reach",
     text: "Access GCC and global markets with our established international connections.",
   },
   {
-    image: "https://res.cloudinary.com/dm8z5zz5s/image/upload/v1748775686/Blog_Cover_yzuexj.webp",
+    image: "https://res.cloudinary.com/dm8z5zz5s/image/upload/v1749131030/2_u1dwp2.webp",
     title: "Faster Execution",
     text: "Deploy marketing, launch products, and activate regions faster than ever.",
   },
   {
-    image: "https://res.cloudinary.com/dm8z5zz5s/image/upload/v1748775686/Blog_Cover_yzuexj.webp",
+    image: "https://res.cloudinary.com/dm8z5zz5s/image/upload/v1749131031/3_1_ua0om9.webp",
     title: "Enduring Partnership",
     text: "We invest in long-term collaborations and help co-build sustainable brands.",
   },
