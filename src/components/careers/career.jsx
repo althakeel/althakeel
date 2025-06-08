@@ -1,16 +1,23 @@
 import React from 'react';
+import { useLanguage } from '../../context/LanguageContext';
 
 const Career = () => {
+  const { language } = useLanguage();
+  const isArabic = language === 'ar';
+  const isMobile = window.innerWidth < 768;
+
+
   const sectionStyle = {
     backgroundColor: '#f9f9f9',
-    padding: '80px 20px',
+    padding: isMobile ? '40px 16px' : '40px 20px',
     fontFamily: 'Segoe UI, sans-serif',
+    direction: isArabic ? 'rtl' : 'ltr',
+    textAlign: 'center',
   };
 
   const containerStyle = {
     maxWidth: '1200px',
     margin: '0 auto',
-    textAlign: 'center',
   };
 
   const headingStyle = {
@@ -48,6 +55,7 @@ const Career = () => {
     flex: '1 1 300px',
     maxWidth: '360px',
     transition: 'transform 0.3s ease',
+    textAlign: isArabic ? 'right' : 'left',
   };
 
   const boxTitleStyle = {
@@ -66,32 +74,56 @@ const Career = () => {
   return (
     <section style={sectionStyle}>
       <div style={containerStyle}>
-        <h2 style={headingStyle}>Build Your Career at Al Thakeel</h2>
+        <h2 style={headingStyle}>
+          {isArabic ? 'ابنِ مستقبلك المهني مع الثقيل' : 'Build Your Career at Al Thakeel'}
+        </h2>
         <p style={subHeadingStyle}>
-          We are a dynamic UAE-based company shaping the future of retail, e-commerce, and innovation.
-          Partnering with global platforms like <span style={highlightStyle}>Amazon</span> and <span style={highlightStyle}>Noon</span>,
-          we’re constantly growing and looking for bold minds to grow with us.
+          {isArabic ? (
+            <>
+              نحن شركة إماراتية ديناميكية نشكّل مستقبل البيع بالتجزئة والتجارة الإلكترونية والابتكار.
+              بالتعاون مع منصات عالمية مثل <span style={highlightStyle}>أمازون</span> و<span style={highlightStyle}>نون</span>، 
+              ننمو باستمرار ونبحث عن عقول جريئة تنمو معنا.
+            </>
+          ) : (
+            <>
+              We are a dynamic UAE-based company shaping the future of retail, e-commerce, and innovation.
+              Partnering with global platforms like <span style={highlightStyle}>Amazon</span> and <span style={highlightStyle}>Noon</span>,
+              we’re constantly growing and looking for bold minds to grow with us.
+            </>
+          )}
         </p>
 
         <div style={boxWrapperStyle}>
           <div style={boxStyle}>
-            <div style={boxTitleStyle}>Innovative Culture</div>
+            <div style={boxTitleStyle}>
+              {isArabic ? 'ثقافة الابتكار' : 'Innovative Culture'}
+            </div>
             <p style={boxTextStyle}>
-              Work in a fast-paced environment that thrives on new ideas and breakthrough solutions.
+              {isArabic
+                ? 'اعمل في بيئة سريعة الإيقاع تزدهر بالأفكار الجديدة والحلول المبتكرة.'
+                : 'Work in a fast-paced environment that thrives on new ideas and breakthrough solutions.'}
             </p>
           </div>
 
           <div style={boxStyle}>
-            <div style={boxTitleStyle}>Global Reach</div>
+            <div style={boxTitleStyle}>
+              {isArabic ? 'وصول عالمي' : 'Global Reach'}
+            </div>
             <p style={boxTextStyle}>
-              Join a team whose products reach customers across top marketplaces and international platforms.
+              {isArabic
+                ? 'انضم إلى فريق تصل منتجاته إلى العملاء عبر أهم الأسواق والمنصات الدولية.'
+                : 'Join a team whose products reach customers across top marketplaces and international platforms.'}
             </p>
           </div>
 
           <div style={boxStyle}>
-            <div style={boxTitleStyle}>Grow With Us</div>
+            <div style={boxTitleStyle}>
+              {isArabic ? 'انمو معنا' : 'Grow With Us'}
+            </div>
             <p style={boxTextStyle}>
-              Whether you're starting out or leveling up, we offer opportunities to shape your future with us.
+              {isArabic
+                ? 'سواء كنت تبدأ حياتك المهنية أو تطوّرها، نحن نقدم فرصاً لتشكيل مستقبلك معنا.'
+                : 'Whether you\'re starting out or leveling up, we offer opportunities to shape your future with us.'}
             </p>
           </div>
         </div>

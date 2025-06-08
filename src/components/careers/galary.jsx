@@ -1,40 +1,90 @@
 import React, { useState } from 'react';
+import { useLanguage } from '../../context/LanguageContext';
 
 const Gallery = () => {
+  const { direction } = useLanguage();
+  const isRTL = direction === 'rtl';
+
   const [hoveredIndex, setHoveredIndex] = useState(null);
+
+  // Images data
+  const images = isRTL
+    ? [
+        {
+          label: 'اعمل معنا',
+          text: 'اكتشف فرص العمل المثيرة وانضم إلى فريقنا.',
+          src: 'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1748774846/3_zrl3lq.webp',
+        },
+        {
+          label: 'التوطين',
+          text: 'ندعم المبادرات الوطنية للتوظيف في المنطقة.',
+          src: 'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1748774871/10_drhon5.webp',
+        },
+        {
+          label: 'عملية التقديم',
+          text: 'تعرف على كيفية التقديم وما يمكن توقعه عند الانضمام إلينا.',
+          src: 'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1748774866/9_dw2zxa.webp',
+        },
+      ]
+    : [
+        {
+          label: 'Work with us',
+          text: 'Explore exciting career opportunities and join our team.',
+          src: 'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1748774846/3_zrl3lq.webp',
+        },
+        {
+          label: 'Nationalisation',
+          text: 'We support national hiring initiatives in the region.',
+          src: 'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1748774871/10_drhon5.webp',
+        },
+        {
+          label: 'Our application process',
+          text: 'Learn how to apply and what to expect when you join us.',
+          src: 'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1748774866/9_dw2zxa.webp',
+        },
+      ];
+
+  // Shared fontFamily for Arabic vs English
+  const fontFamily = isRTL ? "'Cairo', 'Arial', sans-serif" : "'Arial', sans-serif";
+
+  // Styles
 
   const mainContainer = {
     display: 'flex',
-    gap: '20px',
-    padding: '20px',
+    gap: 20,
+    padding: 20,
     justifyContent: 'center',
     alignItems: 'center',
-    maxWidth: '1200px',
+    maxWidth: 1200,
     margin: '50px auto',
+    flexDirection: isRTL ? 'row-reverse' : 'row',
+    direction: isRTL ? 'rtl' : 'ltr',
+    fontFamily,
   };
 
   const leftColumn = {
     flex: 1,
     position: 'relative',
-    height: '520px',
-    // borderRadius: '50px 0 50px 0',
+    height: 520,
     overflow: 'hidden',
     cursor: 'pointer',
+    borderRadius: isRTL ? '0 50px 0 50px' : '50px 0 50px 0',
   };
 
   const rightColumn = {
     flex: 1,
     display: 'grid',
     gridTemplateRows: '1fr 1fr',
-    gap: '20px',
-    height: '520px',
+    gap: 20,
+    height: 520,
+    direction: isRTL ? 'rtl' : 'ltr',
   };
 
   const rightImageContainer = {
     position: 'relative',
-    // borderRadius: ' 0 50px 0 50px',
     overflow: 'hidden',
     cursor: 'pointer',
+    borderRadius: isRTL ? '50px 0 50px 0' : '0 50px 0 50px',
   };
 
   const imageStyle = {
@@ -63,10 +113,11 @@ const Gallery = () => {
     justifyContent: 'center',
     alignItems: 'center',
     textAlign: 'center',
-    padding: '20px',
+    padding: 20,
     opacity: 0,
     transform: 'translateY(20px)',
     transition: 'opacity 0.4s ease, transform 0.4s ease',
+    fontFamily,
   };
 
   const overlayVisible = {
@@ -76,34 +127,22 @@ const Gallery = () => {
   };
 
   const labelStyle = {
-    fontSize: '20px',
+    fontSize: 20,
     fontWeight: 'bold',
-    marginBottom: '10px',
+    marginBottom: 10,
+    direction: isRTL ? 'rtl' : 'ltr',
+    textAlign: 'center',
+    fontFamily,
   };
 
   const textStyle = {
-    fontSize: '14px',
-    lineHeight: '1.5',
-    maxWidth: '300px',
+    fontSize: 14,
+    lineHeight: 1.5,
+    maxWidth: 300,
+    direction: isRTL ? 'rtl' : 'ltr',
+    textAlign: 'center',
+    fontFamily,
   };
-
-  const images = [
-    {
-      label: 'Work with us',
-      text: 'Explore exciting career opportunities and join our team.',
-      src: 'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1748774846/3_zrl3lq.webp',
-    },
-    {
-      label: 'Nationalisation',
-      text: 'We support national hiring initiatives in the region.',
-      src: 'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1748774871/10_drhon5.webp',
-    },
-    {
-      label: 'Our application process',
-      text: 'Learn how to apply and what to expect when you join us.',
-      src: 'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1748774866/9_dw2zxa.webp',
-    },
-  ];
 
   return (
     <div style={mainContainer}>
@@ -117,10 +156,15 @@ const Gallery = () => {
           src={images[0].src}
           alt={images[0].label}
           style={hoveredIndex === 0 ? imageZoomed : imageStyle}
+          lang={isRTL ? 'ar' : 'en'}
         />
         <div style={hoveredIndex === 0 ? overlayVisible : overlayBase}>
-          <div style={labelStyle}>{images[0].label}</div>
-          <div style={textStyle}>{images[0].text}</div>
+          <div style={labelStyle} lang={isRTL ? 'ar' : 'en'}>
+            {images[0].label}
+          </div>
+          <div style={textStyle} lang={isRTL ? 'ar' : 'en'}>
+            {images[0].text}
+          </div>
         </div>
       </div>
 
@@ -137,10 +181,15 @@ const Gallery = () => {
               src={images[i].src}
               alt={images[i].label}
               style={hoveredIndex === i ? imageZoomed : imageStyle}
+              lang={isRTL ? 'ar' : 'en'}
             />
             <div style={hoveredIndex === i ? overlayVisible : overlayBase}>
-              <div style={labelStyle}>{images[i].label}</div>
-              <div style={textStyle}>{images[i].text}</div>
+              <div style={labelStyle} lang={isRTL ? 'ar' : 'en'}>
+                {images[i].label}
+              </div>
+              <div style={textStyle} lang={isRTL ? 'ar' : 'en'}>
+                {images[i].text}
+              </div>
             </div>
           </div>
         ))}

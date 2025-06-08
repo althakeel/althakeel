@@ -374,7 +374,7 @@ const styles = {
   header: {
     position: 'relative',
     zIndex: 3,
-    padding: '20px 40px',
+    padding: '20px 50px',
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -382,7 +382,7 @@ const styles = {
     fontFamily: 'Montserrat, sans-serif',
     fontWeight:'Bold',
     alignItems: 'flex-end',
-    padding: '0 40px',
+    // padding: '0 40px',
   },
   headerContent: {
     display: 'flex',

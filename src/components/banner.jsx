@@ -32,7 +32,7 @@ const styles = {
   bannerContainer: {
     position: 'relative',
     width: '100%',
-    height: '100vh', // adjust to 100vh for full screen
+    height: '100vh',
     overflow: 'hidden',
   },
   videoBackground: {

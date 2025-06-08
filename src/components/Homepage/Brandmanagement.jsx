@@ -3,61 +3,108 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const slides = [
   {
-    title: "Brands Management",
-    desc: "We build private/white-label brands from concept to market, ensuring product–market fit and scalable growth:",
-    points: [
-      { bold: "Market Validation: ", text: "Conduct local demand analysis and competitor benchmarking in the UAE to confirm niche viability." },
-      { bold: "Brand Identity & Digital Launch:", text: "Develop cohesive brand assets (logo, color palette) and SEO-optimized websites." },
-      { bold: "Marketplace Onboarding:", text: "List and optimize products on major UAE e-commerce platforms (Amazon.ae, Noon) for visibility and conversion." },
-      { bold: "Marketing & Growth:", text: "Execute omnichannel campaigns (social media, email, influencer partnerships) tailored to UAE consumer behaviors." },
-    ],
+    en: {
+      title: "Brands Management",
+      desc: "We develop private-label brands from idea to market, ensuring product–market fit and scalable growth in the UAE.",
+      points: [
+        { bold: "Market Validation: ", text: "Analyze local demand and benchmark competitors to confirm niche potential." },
+        { bold: "Brand Identity & Launch: ", text: "Create cohesive branding and SEO-optimized websites tailored for the UAE market." },
+        { bold: "Marketplace Onboarding: ", text: "List products on Amazon.ae, Noon, and other major platforms for visibility and sales." },
+        { bold: "Marketing & Growth: ", text: "Run localized campaigns using social, email, and influencers aligned with UAE audiences." },
+      ],
+    },
+    ar: {
+      title: "إدارة العلامات التجارية",
+      desc: "نطوّر علامات تجارية خاصة من الفكرة حتى السوق، مع ضمان توافق المنتج مع احتياجات السوق المحلي في الإمارات.",
+      points: [
+        { bold: "تحقق من السوق: ", text: "تحليل الطلب المحلي ومقارنة المنافسين لتحديد مدى جدوى الفكرة." },
+        { bold: "هوية العلامة والإطلاق: ", text: "تصميم علامة متكاملة وموقع إلكتروني مهيأ لمحركات البحث ومناسب للجمهور الإماراتي." },
+        { bold: "إدراج في المتاجر: ", text: "إدراج المنتجات على Amazon.ae وNoon ومنصات أخرى لزيادة الظهور والمبيعات." },
+        { bold: "التسويق والنمو: ", text: "تنفيذ حملات تسويقية مخصصة للسوق الإماراتي باستخدام السوشيال ميديا والبريد والمؤثرين." },
+      ],
+    },
     image: "https://res.cloudinary.com/dm8z5zz5s/image/upload/v1749066176/4_1_vykdyn.webp",
   },
   {
-    title: "Brands Acquisition ",
-    desc: "We target and integrate under-leveraged brands with high-growth potential through rigorous due diligence: ",
-    points: [
-      { bold: "Target Identification: ", text: "Screen for brands with strong equity but limited local reach. " },
-      { bold: "Due Diligence & Valuation:", text: "Analyze financials, market share, and legal standing to determine fair acquisition terms. " },
-      { bold: "Acquisition Structuring:", text: "Negotiate full or partial equity deals, including performance-based earn-outs." },
-      { bold: "Post-Acquisition Integration:", text: "Consolidate operations (logistics, procurement) under Althakeel’s framework to unlock efficiencies. " },
-    ],
+    en: {
+      title: "Brand Acquisition",
+      desc: "We acquire underutilized brands with growth potential in the UAE through rigorous evaluation.",
+      points: [
+        { bold: "Target Sourcing: ", text: "Identify brands with strong assets but low market penetration." },
+        { bold: "Due Diligence: ", text: "Evaluate financials, legal aspects, and market fit for fair acquisition terms." },
+        { bold: "Deal Structuring: ", text: "Structure full or partial equity deals, with possible performance-based components." },
+        { bold: "Integration: ", text: "Streamline logistics and operations under our framework to maximize value." },
+      ],
+    },
+    ar: {
+      title: "الاستحواذ على العلامات التجارية",
+      desc: "نستحوذ على علامات تجارية ذات إمكانيات نمو غير مستغلة من خلال تحليل شامل للسوق والبيانات.",
+      points: [
+        { bold: "البحث عن العلامات: ", text: "تحديد علامات تجارية قوية لم تحقق انتشاراً واسعاً في الإمارات." },
+        { bold: "تحقيق العناية الواجبة: ", text: "تحليل البيانات المالية والقانونية ومدى ملاءمة السوق." },
+        { bold: "هيكلة الصفقة: ", text: "تقديم عروض استحواذ جزئي أو كلي تتضمن محفزات مرتبطة بالأداء." },
+        { bold: "الدمج بعد الاستحواذ: ", text: "توحيد العمليات والخدمات اللوجستية لتحقيق الكفاءة القصوى." },
+      ],
+    },
     image: "https://res.cloudinary.com/dm8z5zz5s/image/upload/v1749130433/3_z5lhq0.webp",
   },
   {
-    title: "Brands Partnerships ",
-    desc: "We partner with international brands to bring curated products into the UAE, leveraging local insights and distribution: ",
-    points: [
-      { bold: "Global Scouting: ", text: " Identify overseas brands that align with UAE market trends (e.g., sustainability, tech).  " },
-      { bold: "Opportunity–Risk Analysis: ", text: "Evaluate regulatory requirements and supply-chain factors to mitigate entry risks.  " },
-      { bold: "Go-to-Market Planning: ", text: "Localize branding and coordinate logistics for seamless UAE launch.  " },
-      { bold: "Ongoing Collaboration: ", text: " Implement co-marketing initiatives, joint events, and performance tracking to drive continuous growth." },
-    ],
+    en: {
+      title: "Brand Partnerships",
+      desc: "We bring international brands into the UAE by localizing their presence and distribution strategy.",
+      points: [
+        { bold: "Global Scouting: ", text: "Source international brands that align with UAE consumer trends." },
+        { bold: "Risk Evaluation: ", text: "Assess legal and logistical readiness for market entry." },
+        { bold: "Market Entry: ", text: "Localize messaging and product mix for UAE audiences." },
+        { bold: "Ongoing Support: ", text: "Collaborate on co-marketing and performance tracking." },
+      ],
+    },
+    ar: {
+      title: "شراكات العلامات التجارية",
+      desc: "نساعد العلامات العالمية على دخول السوق الإماراتي من خلال توزيع وخطط محلية مدروسة.",
+      points: [
+        { bold: "استكشاف عالمي: ", text: "البحث عن علامات تجارية دولية تناسب توجهات المستهلك الإماراتي." },
+        { bold: "تقييم المخاطر: ", text: "تحليل التحديات القانونية واللوجستية قبل دخول السوق." },
+        { bold: "دخول السوق: ", text: "توطين المحتوى والعروض لتناسب الجمهور المحلي." },
+        { bold: "دعم مستمر: ", text: "تعاون تسويقي ومراقبة الأداء للنمو المستدام." },
+      ],
+    },
     image: "https://res.cloudinary.com/dm8z5zz5s/image/upload/v1749066175/1_2_fqcipr.webp",
   },
   {
-    title: "Niched Marketplace  ",
-    desc: "We develop vertical-focused e-commerce platforms that cater to highly specific consumer segments: ",
-    points: [
-      { bold: "Vertical Selection & Curation:  ", text: " Choose high-potential niches (e.g., eco-friendly home goods, premium men’s grooming) based on market demand. " },
-      { bold: "Platform Development: ", text: " Build user-friendly interfaces with specialized filters, educational content, and community features. " },
-      { bold: "Value-Added Services: ", text: " Provide expert guides, product reviews, and white-glove fulfillment for premium positioning." },
-      { bold: "Data-Driven Optimization:", text: " Leverage analytics to refine product assortments and enhance customer lifetime value. " },
-    ],
+    en: {
+      title: "Niched Marketplaces",
+      desc: "We develop vertical e-commerce platforms that serve specific UAE market segments with tailored experiences.",
+      points: [
+        { bold: "Niche Selection: ", text: "Target promising verticals like sustainable home goods or luxury grooming." },
+        { bold: "Platform Design: ", text: "Build user-centric experiences with smart filtering and education." },
+        { bold: "Premium Services: ", text: "Offer white-glove fulfillment, expert guides, and content-rich value." },
+        { bold: "Data Optimization: ", text: "Use analytics to refine offerings and improve retention." },
+      ],
+    },
+    ar: {
+      title: "الأسواق المتخصصة",
+      desc: "نصمم منصات تجارة إلكترونية عمودية تخدم شرائح معينة في السوق الإماراتي بأسلوب مخصص.",
+      points: [
+        { bold: "اختيار التخصص: ", text: "التركيز على فئات مميزة مثل الأدوات المستدامة أو العناية الرجالية الفاخرة." },
+        { bold: "تصميم المنصة: ", text: "توفير تجربة سهلة مع فلاتر ذكية ومحتوى تعليمي مفيد." },
+        { bold: "الخدمات المميزة: ", text: "تقديم توصيل مميز ودلائل خبراء لرفع القيمة." },
+        { bold: "تحسين بالبيانات: ", text: "استخدام تحليلات مستمرة لتطوير تجربة العميل وزيادة الولاء." },
+      ],
+    },
     image: "https://res.cloudinary.com/dm8z5zz5s/image/upload/v1749033450/2_ro2lla.webp",
   },
 ];
 
-const FullWidthCarousel = () => {
+const FullWidthCarousel = ({ lang = "en", dir = "ltr" }) => {
   const [current, setCurrent] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [dragStart, setDragStart] = useState(0);
-  const timeoutRef = useRef(null);
   const slideContainerRef = useRef(null);
-  const slideCount = slides.length;
+  const timeoutRef = useRef(null);
 
-  const nextSlide = () => setCurrent((prev) => (prev + 1) % slideCount);
-  const prevSlide = () => setCurrent((prev) => (prev - 1 + slideCount) % slideCount);
+  const nextSlide = () => setCurrent((prev) => (prev + 1) % slides.length);
+  const prevSlide = () => setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
 
   useEffect(() => {
     const scrollToCurrent = () => {
@@ -70,10 +117,8 @@ const FullWidthCarousel = () => {
         }
       }
     };
-
     const frame = requestAnimationFrame(scrollToCurrent);
-    timeoutRef.current = setTimeout(nextSlide, 65000);
-
+    timeoutRef.current = setTimeout(nextSlide, 60000);
     return () => {
       cancelAnimationFrame(frame);
       clearTimeout(timeoutRef.current);
@@ -95,41 +140,14 @@ const FullWidthCarousel = () => {
   };
 
   return (
-    <>
+    <div dir={dir} style={{ background: "#f9fafb", padding: "20px 0" }}>
       <style>{`
-        * {
-          box-sizing: border-box;
-        }
-
-        .carousel-container {
-          width: 100%;
-          padding: 10px 0 40px ;
-  background-color: #f9fafb;
-          margin: 0 auto;
-        }
-
-        .carousel-title {
-          text-align: center;
-          font-size: 2rem;
-          font-weight: 500;
-            color: #021c35;
-
-          margin-bottom: 20px;
-          font-family: 'Montserrat', sans-serif;
-          padding: 0 16px;
-        }
-
         .carousel-wrapper {
-          position: relative;
           display: flex;
-          justify-content: center;
           align-items: center;
-          cursor: grab;
-          width: 100%;
-        }
-
-        .carousel-wrapper.grabbing {
-          cursor: grabbing;
+          justify-content: center;
+          position: relative;
+          overflow: hidden;
         }
 
         .slide-container {
@@ -137,193 +155,146 @@ const FullWidthCarousel = () => {
           overflow-x: auto;
           scroll-snap-type: x mandatory;
           scroll-behavior: smooth;
-          -webkit-overflow-scrolling: touch;
-          padding: 20px 0;
           width: 100%;
         }
 
         .slide {
+          flex: 0 0 85%;
           display: flex;
-          flex-direction: row;
-          min-width: 80vw;
-          max-width: 90vw;
-          margin: 0 20px;
-          scroll-snap-align: center;
-          background-color: #fff;
+          background: #fff;
           border-radius: 16px;
-          box-shadow: 0 4px 12px rgba(0,0,0,0.1);
           overflow: hidden;
-        }
-
-        .slide-image {
-          width: 50%;
-          object-fit: cover;
+          scroll-snap-align: center;
+          margin: 0 12px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
           height: auto;
         }
 
-        .slide-text {
+        .slide img {
           width: 50%;
-          padding: 24px;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          font-family: 'Montserrat', sans-serif;
-          word-wrap: break-word;
-          overflow-wrap: break-word;
+          height: auto;
+          object-fit: cover;
         }
 
-        .slide-text h3 {
-          font-size: 25px;
-          font-weight: 600;
+        .slide-content {
+          width: 50%;
+          padding: 20px;
+          font-family: 'Arial', sans-serif;
+          direction: ${dir};
+          overflow-y: auto;
+        }
+
+        .slide-content h3 {
+          font-size: 22px;
           color: #B38D42;
-
-          margin-bottom: 5px;
+          margin-bottom: 10px;
         }
 
-        .slide-text p {
-          margin-bottom: 16px;
-          font-size: 17px;
-            color: #1F1F1F;
-
-          line-height: 1.4;
+        .slide-content p {
+          font-size: 16px;
+          margin-bottom: 12px;
+          color: #1F1F1F;
         }
 
-        .slide-text ul {
-          padding-left: 20px;
-        }
-
-        .slide-text li {
-          margin-bottom: 8px;
-          list-style-type: disc;
-          font-size: 15px;
-          line-height: 1.3;
-            color: #333333;
-
+        .slide-content li {
+          font-size: 14px;
+          margin-bottom: 6px;
+          color: #333;
+          line-height: 1.5;
         }
 
         .nav-button {
           position: absolute;
           top: 50%;
           transform: translateY(-50%);
-          z-index: 5;
-          padding: 8px;
-          background-color: #fff;
-          border-radius: 50%;
-          box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+          background: #fff;
           border: none;
+          border-radius: 50%;
+          padding: 8px;
+          box-shadow: 0 2px 6px rgba(0,0,0,0.2);
           cursor: pointer;
-          display: flex;
-          align-items: center;
-          justify-content: center;
+          z-index: 1;
         }
 
-        .nav-button.left {
-          left: 16px;
+        .nav-button.left { left: 12px; }
+        .nav-button.right { right: 12px; }
+
+        @media (max-width: 768px) {
+          .slide {
+            flex-direction: column;
+          }
+
+          .slide img {
+            width: 100%;
+            height: 180px;
+          }
+
+          .slide-content {
+            width: 100%;
+            padding: 16px;
+          }
+
+          .slide-content h3 {
+            font-size: 18px;
+          }
+
+          .slide-content p,
+          .slide-content li {
+            font-size: 13px;
+          }
         }
-
-        .nav-button.left.disabled {
-          opacity: 0.5;
-          cursor: not-allowed;
-        }
-
-        .nav-button.right {
-          right: 16px;
-        }
-
-        /* Tablet Styles */
-       @media (max-width: 768px) {
-  .slide {
-    flex-direction: column;
-    flex: 0 0 50%;
-  }
-
-  .slide-image {
-    width: 80%;
-    height: 200px;
-    border-top-left-radius: 16px;
-    border-top-right-radius: 16px;
-  }
-
-  .slide-text {
-    width: 100%;
-    padding: 16px 20px;
-  }
-}
-
-        
-    @media (max-width: 480px) {
-  .slide {
-    flex-direction: column;
-    flex: 0 0 65%;
-    margin: 0 auto;
-    border-radius: 12px;
-   margin-left:10px;
-  }
-
-  .slide-image {
-    height: 180px;
-    width: 100%;
-    object-fit: cover;
-    padding:'10px;
-  }
-
-  .slide-text {
-    padding: 16px;
-    width: 100%;
-  }
-}
-
-
       `}</style>
 
-      <div className="carousel-container">
-        <h2 className="carousel-title">What We Do</h2>
+      <h2 style={{
+        textAlign: "center",
+        fontSize: "35px",
+        marginBottom: "20px",
+        marginRight:"10px",
+        fontFamily: "Montserrat, sans-serif",
+        color: "#000",
+        fontWeight:'500',
+      }}>
+        {lang === "ar" ? "ماذا نقدم" : "What We Do"}
+      </h2>
 
-        <div
-          className={`carousel-wrapper ${isDragging ? "grabbing" : ""}`}
-          onTouchStart={handleStart}
-          onTouchEnd={handleEnd}
-          onMouseDown={handleStart}
-          onMouseUp={handleEnd}
-        >
-          <button
-            onClick={prevSlide}
-            disabled={current === 0}
-            className={`nav-button left ${current === 0 ? "disabled" : ""}`}
-            aria-label="Previous Slide"
-          >
-            <ChevronLeft size={28} />
-          </button>
+      <div
+        className="carousel-wrapper"
+        onTouchStart={handleStart}
+        onTouchEnd={handleEnd}
+        onMouseDown={handleStart}
+        onMouseUp={handleEnd}
+      >
+        <button onClick={prevSlide} className="nav-button left" aria-label="Previous">
+          <ChevronLeft />
+        </button>
 
-          <div className="slide-container"  ref={slideContainerRef}>
-            {slides.map((slide, index) => (
-              <div key={index} className="slide">
-  <img src={slide.image} alt={slide.title} className="slide-image"/>
-  <div className="slide-text">
-                  <h3>{slide.title}</h3>
-                  <p>{slide.desc}</p>
+        <div className="slide-container" ref={slideContainerRef}>
+          {slides.map((slide, index) => {
+            const data = slide[lang];
+            return (
+              <div className="slide" key={index}>
+                <img src={slide.image} alt={data.title} />
+                <div className="slide-content">
+                  <h3>{data.title}</h3>
+                  <p>{data.desc}</p>
                   <ul>
-                    {slide.points.map((point, i) => (
+                    {data.points.map((pt, i) => (
                       <li key={i}>
-                        <b>{point.bold}</b>{point.text}
+                        <strong>{pt.bold}</strong>{pt.text}
                       </li>
                     ))}
                   </ul>
                 </div>
               </div>
-            ))}
-          </div>
-
-          <button
-            onClick={nextSlide}
-            className="nav-button right"
-            aria-label="Next Slide"
-          >
-            <ChevronRight size={28} />
-          </button>
+            );
+          })}
         </div>
+
+        <button onClick={nextSlide} className="nav-button right" aria-label="Next">
+          <ChevronRight />
+        </button>
       </div>
-    </>
+    </div>
   );
 };
 

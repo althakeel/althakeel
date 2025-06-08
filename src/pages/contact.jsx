@@ -1,13 +1,16 @@
 import React from 'react'
-import Header from '../components/contact-H'
+// import Header from '../components/contact-H'
 import Form from '../components/contact/form'
 import Footer from '../components/Footer'
 import Map from '../components/contact/map'
+import Banner from '../components/common/banners/contactbanner'
+import Header from '../components/common/header-contactus'
 
 const contact = () => {
   return (
     <div>
 <Header/>
+<Banner/>
 <Form/>
 <Map/>
 <Footer/>

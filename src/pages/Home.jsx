@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from '../components/header'
+// import Header from '../components/header'
 import Footer from '../components/Footer'
 import OurExpertise from '../components/Homepage/expert'
 import AboutUs from '../components/Homepage/aboutus'
@@ -8,11 +8,17 @@ import Brands from '../components/Homepage/brands'
 import SubscriptionSection from '../components/subscription'
 import News from '../components/Homepage/news'
 import BrandManagement from '../components/Homepage/Brandmanagement'
+import TopBar from '../components/common/topbar'
+import Header from '../components/common/header-home'
+import BannerVideo from '../components//common/banners/homebanner'
 
 const Home = () => {
   return (
     <div>
+        {/* <Header/> */}
+        <TopBar/>
         <Header/>
+        <BannerVideo/>
     <BannerText/>
         <AboutUs/>
         <BrandManagement/>

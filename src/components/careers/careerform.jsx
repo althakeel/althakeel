@@ -1,10 +1,21 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../../context/LanguageContext';
 
-const statusOptions = ['Employed', 'Unemployed', 'Self-Employed', 'Student'];
-const positionOptions = ['Frontend Developer', 'Backend Developer', 'UI/UX Designer', 'Project Manager'];
+const statusOptions = {
+  en: ['Employed', 'Unemployed', 'Self-Employed', 'Student'],
+  ar: ['موظف', 'عاطل عن العمل', 'عامل حر', 'طالب'],
+};
+
+const positionOptions = {
+  en: ['Frontend Developer', 'Backend Developer', 'UI/UX Designer', 'Project Manager'],
+  ar: ['مطوّر الواجهة الأمامية', 'مطوّر الواجهة الخلفية', 'مصمم UI/UX', 'مدير مشروع'],
+};
 
 const CareerForm = () => {
+  const { language } = useLanguage();
+  const isRTL = language === 'ar';
+
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -16,33 +27,66 @@ const CareerForm = () => {
   });
 
   const [showForm, setShowForm] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
-    setFormData({
-      ...formData,
-      [name]: files ? files[0] : value,
-    });
+    setFormData({ ...formData, [name]: files ? files[0] : value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const nameRegex = /^[A-Za-z\s]+$/;
+    const nameRegex = /^[A-Za-z\u0600-\u06FF\s]+$/;
     if (!nameRegex.test(formData.firstName) || !nameRegex.test(formData.lastName)) {
-      alert('Please enter valid first and last names (letters only).');
+      alert(language === 'ar' ? 'يرجى إدخال اسم صحيح' : 'Please enter valid names.');
       return;
     }
-    console.log(formData);
-    alert('Submitted Successfully!');
-    setShowForm(false);
+
+    const payload = new FormData();
+    for (let key in formData) payload.append(key, formData[key]);
+
+    try {
+      const res = await fetch('https://getform.io/f/ayvyezxb', {
+        method: 'POST',
+        body: payload,
+      });
+      if (res.ok) {
+        setSuccess(true);
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          position: '',
+          status: '',
+          resume: null,
+          coverLetter: null,
+        });
+        setTimeout(() => {
+          setSuccess(false);
+          setShowForm(false);
+        }, 2500);
+      }
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
     <div style={styles.container}>
+      <style>{`
+        @media (min-width: 768px) {
+          .inline-group {
+            flex-direction: row !important;
+          }
+        }
+      `}</style>
+
       <div style={styles.infoSection}>
-        <h2 style={styles.titleMain}>Join Our Team</h2>
+        <h2 style={styles.titleMain}>{language === 'ar' ? 'انضم إلى فريقنا' : 'Join Our Team'}</h2>
         <p style={styles.textMain}>
-          We're always on the lookout for talented people to join our dynamic team. Think you’ve got what it takes? Let’s talk!
+          {language === 'ar'
+            ? 'نحن دائمًا نبحث عن أشخاص موهوبين للانضمام إلى فريقنا. هل تعتقد أنك الشخص المناسب؟ تواصل معنا!'
+            : "We're always on the lookout for talented people. Think you’ve got what it takes? Let’s talk!"}
         </p>
         <motion.button
           whileHover={{ scale: 1.03 }}
@@ -50,7 +94,7 @@ const CareerForm = () => {
           style={styles.button}
           onClick={() => setShowForm(true)}
         >
-          Apply Now
+          {language === 'ar' ? 'قدّم الآن' : 'Apply Now'}
         </motion.button>
       </div>
 
@@ -60,17 +104,31 @@ const CareerForm = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            style={styles.modalCard}
+            style={{ ...styles.modalCard, direction: isRTL ? 'rtl' : 'ltr' }}
           >
-            <h2 style={styles.titlePopup}>Career Application</h2>
-            <p style={styles.textPopup}>Please fill in the details below and upload your resume.</p>
+            <h2 style={styles.titlePopup}>{language === 'ar' ? 'طلب التوظيف' : 'Career Application'}</h2>
+            <p style={styles.textPopup}>
+              {language === 'ar'
+                ? 'يرجى ملء التفاصيل أدناه وإرفاق سيرتك الذاتية.'
+                : 'Please fill in the details below and upload your resume.'}
+            </p>
 
-            <form onSubmit={handleSubmit} style={styles.form}>
-              <div style={styles.inlineGroup}>
+            {success && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                style={styles.successBox}
+              >
+                {language === 'ar' ? 'تم الإرسال بنجاح!' : 'Your application has been submitted successfully!'}
+              </motion.div>
+            )}
+
+            <form onSubmit={handleSubmit} style={styles.form} encType="multipart/form-data">
+              <div style={styles.inlineGroup} className="inline-group">
                 <input
                   type="text"
                   name="firstName"
-                  placeholder="First Name"
+                  placeholder={language === 'ar' ? 'الاسم الأول' : 'First Name'}
                   value={formData.firstName}
                   onChange={handleChange}
                   required
@@ -79,7 +137,7 @@ const CareerForm = () => {
                 <input
                   type="text"
                   name="lastName"
-                  placeholder="Last Name"
+                  placeholder={language === 'ar' ? 'اسم العائلة' : 'Last Name'}
                   value={formData.lastName}
                   onChange={handleChange}
                   required
@@ -90,14 +148,14 @@ const CareerForm = () => {
               <input
                 type="email"
                 name="email"
-                placeholder="Email"
+                placeholder={language === 'ar' ? 'البريد الإلكتروني' : 'Email'}
                 value={formData.email}
                 onChange={handleChange}
                 required
                 style={styles.input}
               />
 
-              <div style={styles.inlineGroup}>
+              <div style={styles.inlineGroup} className="inline-group">
                 <select
                   name="position"
                   value={formData.position}
@@ -105,9 +163,9 @@ const CareerForm = () => {
                   required
                   style={styles.select}
                 >
-                  <option value="">Position Applied For</option>
-                  {positionOptions.map((option) => (
-                    <option key={option} value={option}>{option}</option>
+                  <option value="">{language === 'ar' ? 'الوظيفة المتقدم لها' : 'Position Applied For'}</option>
+                  {positionOptions[language].map((opt) => (
+                    <option key={opt} value={opt}>{opt}</option>
                   ))}
                 </select>
 
@@ -118,14 +176,14 @@ const CareerForm = () => {
                   required
                   style={styles.select}
                 >
-                  <option value="">Employment Status</option>
-                  {statusOptions.map((option) => (
-                    <option key={option} value={option}>{option}</option>
+                  <option value="">{language === 'ar' ? 'الحالة الوظيفية' : 'Employment Status'}</option>
+                  {statusOptions[language].map((opt) => (
+                    <option key={opt} value={opt}>{opt}</option>
                   ))}
                 </select>
               </div>
 
-              <label style={styles.label}>Resume</label>
+              <label style={styles.label}>{language === 'ar' ? 'السيرة الذاتية' : 'Resume'}</label>
               <input
                 type="file"
                 name="resume"
@@ -135,7 +193,7 @@ const CareerForm = () => {
                 style={styles.fileInput}
               />
 
-              <label style={styles.label}>Cover Letter (Optional)</label>
+              <label style={styles.label}>{language === 'ar' ? 'خطاب التقديم (اختياري)' : 'Cover Letter (Optional)'}</label>
               <input
                 type="file"
                 name="coverLetter"
@@ -144,24 +202,18 @@ const CareerForm = () => {
                 style={styles.fileInput}
               />
 
-              <div style={{ display: 'flex', justifyContent: 'space-between', gap: 12 }}>
-                <motion.button
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.95 }}
-                  type="submit"
-                  style={styles.button}
-                >
-                  Submit
+              <div style={styles.buttonRow}>
+                <motion.button whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.95 }} type="submit" style={styles.button}>
+                  {language === 'ar' ? 'إرسال' : 'Submit'}
                 </motion.button>
-
                 <motion.button
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.95 }}
                   type="button"
                   onClick={() => setShowForm(false)}
-                  style={{ ...styles.button, backgroundColor: '#ddd', color: '#333' }}
+                  style={{ ...styles.button, backgroundColor: '#ccc', color: '#222' }}
                 >
-                  Cancel
+                  {language === 'ar' ? 'إلغاء' : 'Cancel'}
                 </motion.button>
               </div>
             </form>
@@ -175,18 +227,21 @@ const CareerForm = () => {
 const styles = {
   container: {
     background: 'linear-gradient(135deg, #000000 0%, #b79e62 100%)',
-    minHeight: '200px',
     padding: '40px 20px',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    // width: '100vw', 
     flexDirection: 'column',
+
+
+
   },
   infoSection: {
-    padding: 40,
-    borderRadius: 16,
     textAlign: 'center',
     maxWidth: 600,
+    width: '100%',
+    // padding: 30,
   },
   titleMain: {
     fontSize: 28,
@@ -208,7 +263,6 @@ const styles = {
     borderRadius: 8,
     cursor: 'pointer',
     fontWeight: 600,
-    transition: 'all 0.3s ease',
   },
   modalOverlay: {
     position: 'fixed',
@@ -222,26 +276,27 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
+    boxSizing: 'border-box',
   },
   modalCard: {
     background: '#ffffff',
     borderRadius: 12,
-    padding: 30,
+    padding: 20,
     width: '100%',
     maxWidth: 600,
     maxHeight: '90vh',
     overflowY: 'auto',
-    boxShadow: '0 10px 24px rgba(0,0,0,0.15)',
+    boxSizing: 'border-box',
   },
   titlePopup: {
-    fontSize: 26,
-    marginBottom: 6,
+    fontSize: 24,
+    marginBottom: 10,
     color: '#021c35',
   },
   textPopup: {
-    fontSize: 15,
+    fontSize: 14,
     marginBottom: 20,
-    color: '#555555',
+    color: '#555',
   },
   form: {
     display: 'flex',
@@ -250,24 +305,23 @@ const styles = {
   },
   inlineGroup: {
     display: 'flex',
+    flexDirection: 'column',
     gap: 12,
-    flexWrap: 'nowrap',
     width: '100%',
   },
   input: {
-    flex: 1,
     padding: 12,
     borderRadius: 6,
     border: '1px solid #ccc',
     fontSize: 15,
+    width: '100%',
   },
   select: {
-    flex: 1,
     padding: 12,
     borderRadius: 6,
     border: '1px solid #ccc',
     fontSize: 15,
-    background: '#fff',
+    width: '100%',
   },
   label: {
     fontSize: 14,
@@ -280,6 +334,22 @@ const styles = {
     borderRadius: 6,
     border: '1px solid #ccc',
     fontSize: 14,
+  },
+  buttonRow: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 12,
+    marginTop: 10,
+  },
+  successBox: {
+    background: '#d4edda',
+    color: '#155724',
+    padding: '1rem',
+    borderRadius: '8px',
+    marginBottom: '1rem',
+    border: '1px solid #c3e6cb',
+    textAlign: 'center',
+    fontWeight: 500,
   },
 };
 

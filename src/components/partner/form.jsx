@@ -1,6 +1,10 @@
 import React, { useEffect } from 'react';
+import { useLanguage } from '../../context/LanguageContext';
 
 const PartnerForm = () => {
+  const { language } = useLanguage();
+  const isArabic = language === 'ar';
+
   useEffect(() => {
     const styleTag = document.createElement('style');
     styleTag.innerHTML = `
@@ -21,24 +25,68 @@ const PartnerForm = () => {
     document.head.appendChild(styleTag);
   }, []);
 
+  const content = {
+    en: {
+      title: "Partner with Al Thakeel",
+      intro: "Al Thakeel is a forward-thinking business group headquartered in Dubai, dedicated to innovation, quality, and excellence.",
+      listIntro: "By partnering with us, you gain access to:",
+      listItems: [
+        "Diverse markets across retail, tech, and lifestyle",
+        "Established brands like Nexso, Store 1920, and Armed",
+        "Innovative solutions powered by experienced teams",
+        "A trusted network in the UAE and beyond"
+      ],
+      close: "We’re always looking for visionary partners — distributors, investors, or service providers — let’s grow together.",
+      formTitle: "Start the Partnership",
+      company: "Company Name",
+      email: "Email",
+      phone: "Phone",
+      phonePlaceholder: "+971 50 123 4567",
+      message: "Message",
+      messagePlaceholder: "Tell us how you'd like to collaborate...",
+      submit: "Submit"
+    },
+    ar: {
+      title: "شارك مع الثقيل",
+      intro: "الثقيل هي مجموعة أعمال مبتكرة مقرها دبي، تركز على الابتكار والجودة والتميز.",
+      listIntro: "من خلال الشراكة معنا، ستحصل على:",
+      listItems: [
+        "أسواق متنوعة تشمل التجزئة والتكنولوجيا ونمط الحياة",
+        "علامات تجارية راسخة مثل Nexso وStore 1920 وArmed",
+        "حلول مبتكرة تدعمها فرق ذات خبرة",
+        "شبكة موثوقة في الإمارات وخارجها"
+      ],
+      close: "نحن نبحث دائمًا عن شركاء طموحين — موزعين أو مستثمرين أو مقدمي خدمات — دعونا ننمو معًا.",
+      formTitle: "ابدأ الشراكة",
+      company: "اسم الشركة",
+      email: "البريد الإلكتروني",
+      phone: "رقم الهاتف",
+      phonePlaceholder: "+٩٧١ ٥٠ ١٢٣ ٤٥٦٧",
+      message: "رسالتك",
+      messagePlaceholder: "أخبرنا كيف ترغب في التعاون...",
+      submit: "إرسال"
+    }
+  };
+
+  const t = content[language];
+
   return (
-    <div style={styles.wrapper}>
+    <div style={{ ...styles.wrapper, direction: isArabic ? 'rtl' : 'ltr' }}>
       <div className="partner-form-container" style={styles.container}>
         {/* Left Panel */}
         <div className="left-panel" style={styles.leftPanel}>
-          <div style={styles.overlay}>
-            <h1 style={styles.title}>Partner with Al Thakeel</h1>
+          <div style={{ ...styles.overlay, textAlign: isArabic ? 'right' : 'left' }}>
+            <h1 style={styles.title}>{t.title}</h1>
             <p style={styles.description}>
-              Al Thakeel is a forward-thinking business group headquartered in Dubai, dedicated to innovation, quality, and excellence.
+              {t.intro}
               <br /><br />
-              By partnering with us, you gain access to:
+              {t.listIntro}
               <ul style={styles.list}>
-                <li>Diverse markets across retail, tech, and lifestyle</li>
-                <li>Established brands like Nexso, Store 1920, and Armed</li>
-                <li>Innovative solutions powered by experienced teams</li>
-                <li>A trusted network in the UAE and beyond</li>
+                {t.listItems.map((item, idx) => (
+                  <li key={idx}>{item}</li>
+                ))}
               </ul>
-              We’re always looking for visionary partners — distributors, investors, or service providers — let’s grow together.
+              {t.close}
             </p>
           </div>
         </div>
@@ -46,34 +94,52 @@ const PartnerForm = () => {
         {/* Right Panel */}
         <div className="right-panel form-wrapper" style={styles.rightPanel}>
           <form style={styles.form}>
-            <h2 style={styles.formTitle}>Start the Partnership</h2>
+            <h2 style={styles.formTitle}>{t.formTitle}</h2>
 
             <div style={styles.formGroup}>
-              <label style={styles.label}>Company Name</label>
-              <input type="text" placeholder="Your company name" style={styles.input} />
-            </div>
-
-            <div style={styles.formGroup}>
-              <label style={styles.label}>Email</label>
-              <input type="email" placeholder="example@domain.com" style={styles.input} />
-            </div>
-
-            <div style={styles.formGroup}>
-              <label style={styles.label}>Phone</label>
-              <input type="tel" placeholder="+971 50 123 4567" style={styles.input} />
-            </div>
-
-            <div style={styles.formGroup}>
-              <label style={styles.label}>Message</label>
-              <textarea
-                placeholder="Tell us how you'd like to collaborate..."
-                rows={4}
-                style={styles.textarea}
+              <label style={styles.label}>{t.company}</label>
+              <input
+                type="text"
+                placeholder={t.company}
+                style={styles.input}
+                dir={isArabic ? 'rtl' : 'ltr'}
               />
             </div>
 
             <div style={styles.formGroup}>
-              <button type="submit" style={styles.submitButton}>Submit</button>
+              <label style={styles.label}>{t.email}</label>
+              <input
+                type="email"
+                placeholder="example@domain.com"
+                style={styles.input}
+                dir={isArabic ? 'rtl' : 'ltr'}
+              />
+            </div>
+
+            <div style={styles.formGroup}>
+              <label style={styles.label}>{t.phone}</label>
+              <input
+                type="tel"
+                placeholder={t.phonePlaceholder}
+                style={styles.input}
+                dir={isArabic ? 'rtl' : 'ltr'}
+              />
+            </div>
+
+            <div style={styles.formGroup}>
+              <label style={styles.label}>{t.message}</label>
+              <textarea
+                placeholder={t.messagePlaceholder}
+                rows={4}
+                style={styles.textarea}
+                dir={isArabic ? 'rtl' : 'ltr'}
+              />
+            </div>
+
+            <div style={styles.formGroup}>
+              <button type="submit" style={styles.submitButton}>
+                {t.submit}
+              </button>
             </div>
           </form>
         </div>
@@ -115,7 +181,6 @@ const styles = {
     padding: '40px',
     borderRadius: '12px',
     maxWidth: '420px',
-    textAlign: 'left',
     fontSize: '15px',
     lineHeight: '1.7',
   },
@@ -194,7 +259,7 @@ const styles = {
     cursor: 'pointer',
     fontWeight: '600',
     transition: 'background 0.3s ease',
-  }
+  },
 };
 
 export default PartnerForm;

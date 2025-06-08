@@ -6,6 +6,8 @@ const AboutUs = () => {
   const { language } = useLanguage();
   const isArabic = language === 'ar';
   const navigate = useNavigate();
+  const isMobile = window.innerWidth <= 768;
+
 
   const styles = {
     container: {
@@ -14,7 +16,7 @@ const AboutUs = () => {
       flexWrap: 'wrap',
       alignItems: 'center',
       justifyContent: 'center',
-      padding: '60px 5%',
+      padding: isMobile ? '50px 20px 20px' : '125px 5% 30px',
       minHeight: '40vh',
       // maxHeight:"400px", 
       background: '#fafafa',
@@ -22,6 +24,7 @@ const AboutUs = () => {
       textAlign: isArabic ? 'right' : 'left',
       gap: '60px',
     },
+    
     videoWrapper: {
       flex: '1 1 500px',
       borderRadius: '16px',

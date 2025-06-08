@@ -1,7 +1,8 @@
 import React, { useRef, useState, useEffect } from 'react';
+import { useLanguage } from '../../context/LanguageContext';
 
-const Blog = () => {
-  const posts = [
+const postsData = {
+  en: [
     {
       id: 'post1',
       title: 'Inside al Thakeel: Building a Multi-Brand Ecosystem That Scales',
@@ -50,8 +51,76 @@ const Blog = () => {
       image:
         'https://res.cloudinary.com/dnpwsutir/image/upload/v1748337581/Business_man_is_making_a_speech_in_front_of_a_big_audience_at_a_conference_hall___Premium_AI-generated_image_ur4j3y.jpg',
     },
-  ];
-  
+  ],
+  ar: [
+    {
+      id: 'post1',
+      title: 'داخل الثقيل: بناء نظام بيئي متعدد العلامات التجارية يمكن توسيعه',
+      description:
+        'استكشف كيف تدير الثقيل وتعتني بعدة علامات تجارية فريدة تحت مظلة واحدة. تبرز هذه المقالة كيف نضمن الجودة والابتكار ورضا العملاء أثناء التوسع عبر منصات التجارة الإلكترونية المختلفة.',
+      image:
+        'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1748868061/1_z1xjol.webp',
+    },
+    {
+      id: 'post2',
+      title: 'كيف يمكن لعلامتك التجارية النمو مع الثقيل: شارك معنا اليوم',
+      description:
+        'هل ترغب في توسيع نطاق عملك؟ تعرف على كيفية تعاون الشركات مع الثقيل من خلال برنامج "شارك معنا". من الدعم اللوجستي إلى التسويق الرقمي، نساعد العلامات التجارية على الازدهار في الأسواق الإلكترونية التنافسية.',
+      image:
+        'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1748868063/2_vqwpfa.webp',
+    },
+    {
+      id: 'post3',
+      title: 'قوة البيع المتنوع: لماذا تختار الثقيل التجارة الإلكترونية متعددة المنصات',
+      description:
+        'اكتشف لماذا تتبنى الثقيل استراتيجية متعددة المنصات للبيع عبر الإنترنت. نناقش فوائد التنويع، من الوصول إلى جمهور أوسع إلى تقليل المخاطر، وكيف تقود هذه الاستراتيجية إلى نجاح طويل الأمد.',
+      image:
+        'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1748868070/3_roud0b.webp',
+    },
+    {
+      id: 'post4',
+      title: 'قصص نجاح: علامات تجارية نمت مع الثقيل',
+      description:
+        'شاهد كيف تمكنت الشركات الصغيرة والمتوسطة من التوسع من خلال شراكتها مع الثقيل. تشارك هذه المقالة أمثلة حقيقية عن النمو في المبيعات والرؤية ونطاق السوق.',
+      image:
+        'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1748868083/4_b7y8ft.webp',
+    },
+    {
+      id: 'post5',
+      title: 'ما الذي يجعل الثقيل شريكًا فريدًا لعملك؟',
+      description:
+        'اكتشف ما الذي يميز الثقيل كشريك أعمال استراتيجي. نحن نتجاوز التوزيع — نقدم خبرة في وضع العلامة التجارية، تحسين المنصات، وتفاعل العملاء.',
+      image:
+        'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1748868091/5_u1wvxc.webp',
+    },
+    {
+      id: 'post6',
+      title: 'من الفكرة إلى العميل: كيف يساعد الثقيل العلامات التجارية على الإطلاق بسرعة',
+      description:
+        'لا يجب أن يستغرق إطلاق منتج شهورًا. تعرف على كيفية تسريع الثقيل رحلة الوصول إلى السوق للعلامات الجديدة والقائمة باستخدام أدوات تسريع، وصول إلى المنصات، ودعم تشغيلي.',
+      image:
+        'https://res.cloudinary.com/dnpwsutir/image/upload/v1748337581/Business_man_is_making_a_speech_in_front_of_a_big_audience_at_a_conference_hall___Premium_AI-generated_image_ur4j3y.jpg',
+    },
+  ],
+};
+
+const texts = {
+  en: {
+    blogTitles: 'Blog Titles',
+    close: 'Close',
+  },
+  ar: {
+    blogTitles: 'عناوين المدونة',
+    close: 'إغلاق',
+  },
+};
+
+const Blog = () => {
+  const { language } = useLanguage();
+  const isArabic = language === 'ar';
+
+  const posts = postsData[language] || postsData.en;
+  const t = texts[language] || texts.en;
 
   const refs = useRef(posts.reduce((acc, post) => {
     acc[post.id] = React.createRef();
@@ -59,7 +128,9 @@ const Blog = () => {
   }, {}));
 
   const [activePost, setActivePost] = useState(null);
-  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== 'undefined' ? window.innerWidth : 1200
+  );
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -70,45 +141,65 @@ const Blog = () => {
   const isMobile = windowWidth <= 768;
 
   const scrollToPost = (id) => {
-    refs.current[id].current?.scrollIntoView({ behavior: 'smooth' });
+    refs.current[id]?.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   return (
     <div
+      dir={isArabic ? 'rtl' : 'ltr'}
       style={{
         background: '#f5f5f5',
-        fontFamily: 'Poppins, sans-serif',
+        fontFamily: "'Poppins', sans-serif",
         padding: isMobile ? '20px 10px' : '40px 20px',
         boxSizing: 'border-box',
+        minHeight: '100vh',
       }}
     >
       <div
         style={{
-          maxWidth: '1200px',
+          maxWidth: 1200,
           margin: '0 auto',
           display: 'flex',
           flexDirection: isMobile ? 'column' : 'row',
-          gap: '30px',
+          gap: 30,
           boxSizing: 'border-box',
         }}
       >
         {/* Sidebar */}
-        <div
+        <aside
           style={{
-            width: isMobile ? '100%' : '250px',
+            width: isMobile ? '100%' : 250,
             position: isMobile ? 'relative' : 'sticky',
-            top: '20px',
+            top: 20,
             background: '#fff',
-            padding: '20px',
+            padding: 20,
             boxShadow: '0 4px 12px rgba(0,0,0,0.05)',
-            borderRadius: '8px',
+            borderRadius: 8,
             boxSizing: 'border-box',
+            textAlign: isArabic ? 'right' : 'left',
           }}
         >
-          <h3 style={{ marginBottom: '20px', color: '#000', fontSize: '18px' }}>Blog Titles</h3>
-          <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: '14px', color: '#333' }}>
+          <h3
+            style={{
+              marginBottom: 20,
+              color: '#000',
+              fontSize: 18,
+              fontWeight: '600',
+            }}
+          >
+            {t.blogTitles}
+          </h3>
+          <ul
+            style={{
+              listStyle: 'none',
+              padding: 0,
+              margin: 0,
+              fontSize: 14,
+              color: '#0077b6',
+            }}
+          >
             {posts.map((post) => (
-              <li key={post.id} style={{ marginBottom: '12px' }}>
+              <li key={post.id} style={{ marginBottom: 12 }}>
                 <button
                   onClick={() => scrollToPost(post.id)}
                   style={{
@@ -117,61 +208,107 @@ const Blog = () => {
                     padding: 0,
                     cursor: 'pointer',
                     color: '#0077b6',
-                    textAlign: 'left',
-                    fontSize: isMobile ? '14px' : 'inherit',
+                    textAlign: 'inherit',
+                    fontSize: isMobile ? 14 : 'inherit',
                     width: '100%',
+                    fontWeight: '500',
+                    whiteSpace: 'normal',
                   }}
+                  aria-label={post.title}
                 >
                   {post.title}
                 </button>
               </li>
             ))}
           </ul>
-        </div>
+        </aside>
 
         {/* Blog List */}
-        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        <main
+          style={{
+            flex: 1,
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 20,
+            boxSizing: 'border-box',
+          }}
+        >
           {posts.map((post) => (
-            <div
+            <article
               key={post.id}
               ref={refs.current[post.id]}
               onClick={() => setActivePost(post)}
               style={{
                 background: '#fff',
-                padding: '20px',
-                borderRadius: '8px',
-                boxShadow: '0 6px 12px rgba(0,0,0,0.05)',
+                padding: 20,
+                borderRadius: 10,
                 cursor: 'pointer',
+                boxShadow: '0 6px 18px rgba(0, 0, 0, 0.06)',
                 display: 'flex',
-                flexDirection: isMobile ? 'column' : 'row',
-                gap: '20px',
-                alignItems: isMobile ? 'center' : 'flex-start',
-                boxSizing: 'border-box',
+                flexDirection: isMobile ? 'column' : isArabic ? 'row-reverse' : 'row',
+                alignItems: 'center',
+                gap: 20,
+                transition: 'transform 0.2s ease',
               }}
+              onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.03)')}
+              onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
+              aria-label={post.title}
             >
               <img
                 src={post.image}
                 alt={post.title}
+                loading="lazy"
                 style={{
-                  width: isMobile ? '100%' : '160px',
-                  height: isMobile ? 'auto' : '100px',
+                  width: isMobile ? '100%' : 140,
+                  height: 140,
                   objectFit: 'cover',
-                  borderRadius: '8px',
+                  borderRadius: 10,
                   flexShrink: 0,
                 }}
               />
-              <div>
-                <h2 style={{ marginBottom: '10px', fontSize: isMobile ? '16px' : '18px' }}>{post.title}</h2>
-                <p style={{ fontSize: '14px', color: '#555' }}>{post.description.substring(0, 100)}...</p>
+              <div
+                style={{
+                  textAlign: isArabic ? 'right' : 'left',
+                  flex: 1,
+                }}
+              >
+                <h4
+                  style={{
+                    margin: '0 0 10px 0',
+                    fontWeight: 700,
+                    fontSize: isMobile ? 18 : 20,
+                    color: '#03045e',
+                    lineHeight: 1.2,
+                  }}
+                >
+                  {post.title}
+                </h4>
+                <p
+                  style={{
+                    margin: 0,
+                    color: '#666',
+                    fontSize: isMobile ? 14 : 15,
+                    lineHeight: 1.5,
+                    maxHeight: 70,
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                  }}
+                >
+                  {post.description}
+                </p>
               </div>
-            </div>
+            </article>
           ))}
-        </div>
+        </main>
       </div>
 
       {/* Modal */}
       {activePost && (
         <div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="modal-title"
+          tabIndex={-1}
           onClick={() => setActivePost(null)}
           style={{
             position: 'fixed',
@@ -179,12 +316,12 @@ const Blog = () => {
             left: 0,
             width: '100vw',
             height: '100vh',
-            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            background: 'rgba(0,0,0,0.5)',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            padding: '10px',
             zIndex: 9999,
+            padding: 20,
             boxSizing: 'border-box',
           }}
         >
@@ -192,49 +329,63 @@ const Blog = () => {
             onClick={(e) => e.stopPropagation()}
             style={{
               background: '#fff',
-              padding: '20px',
-              borderRadius: '10px',
-              maxWidth: '900px',
+              borderRadius: 12,
+              maxWidth: 600,
               width: '100%',
               maxHeight: '90vh',
               overflowY: 'auto',
-              display: 'flex',
-              flexDirection: isMobile ? 'column' : 'row',
-              gap: '20px',
-              alignItems: isMobile ? 'center' : 'flex-start',
+              padding: 30,
               boxSizing: 'border-box',
+              textAlign: isArabic ? 'right' : 'left',
             }}
           >
+            <button
+              onClick={() => setActivePost(null)}
+              style={{
+                background: 'transparent',
+                border: 'none',
+                color: '#0077b6',
+                fontSize: 16,
+                fontWeight: '600',
+                cursor: 'pointer',
+                marginBottom: 20,
+                float: isArabic ? 'left' : 'right',
+              }}
+              aria-label={t.close}
+            >
+              {t.close} ×
+            </button>
+            <h2
+              id="modal-title"
+              style={{
+                marginTop: 0,
+                marginBottom: 20,
+                color: '#023e8a',
+                fontWeight: '700',
+              }}
+            >
+              {activePost.title}
+            </h2>
             <img
               src={activePost.image}
               alt={activePost.title}
               style={{
-                width: isMobile ? '100%' : '300px',
-                height: 'auto',
-                borderRadius: '8px',
+                width: '100%',
+                borderRadius: 12,
+                marginBottom: 20,
                 objectFit: 'cover',
-                flexShrink: 0,
               }}
             />
-            <div style={{ flex: 1 }}>
-              <h2 style={{ marginTop: 0, fontSize: isMobile ? '18px' : '22px' }}>{activePost.title}</h2>
-              <p style={{ fontSize: '14px', color: '#333', marginTop: '10px' }}>{activePost.description}</p>
-              <button
-                onClick={() => setActivePost(null)}
-                style={{
-                  marginTop: '20px',
-                  padding: '10px 20px',
-                  background: '#0077b6',
-                  color: '#fff',
-                  border: 'none',
-                  borderRadius: '5px',
-                  cursor: 'pointer',
-                  width: isMobile ? '100%' : 'auto',
-                }}
-              >
-                Close
-              </button>
-            </div>
+            <p
+              style={{
+                fontSize: 16,
+                color: '#333',
+                lineHeight: 1.6,
+                whiteSpace: 'pre-line',
+              }}
+            >
+              {activePost.description}
+            </p>
           </div>
         </div>
       )}

@@ -27,14 +27,14 @@ const Footer = () => {
     ? [
         { label: "سياسة الخصوصية", link: "/privacy" },
         { label: "الشروط والأحكام", link: "/terms&condition" },
-        { label: "الأسئلة الشائعة", link: "/faq" },
-        { label: "خريطة الموقع", link: "/sitemap" },
+        // { label: "الأسئلة الشائعة", link: "/faq" },
+        // { label: "خريطة الموقع", link: "/sitemap" },
       ]
     : [
         { label: "Privacy Policy", link: "/privacy" },
         { label: "Terms & Conditions", link: "/terms&condition" },
-        { label: "FAQ", link: "/faq" },
-        { label: "Sitemap", link: "/sitemap" },
+        // { label: "FAQ", link: "/faq" },
+        // { label: "Sitemap", link: "/sitemap" },
       ];
 
   const combinedLinks = [...menuItems, ...policyItems];
@@ -215,7 +215,7 @@ const Footer = () => {
             border: "1px solid #777",
             color: "#777",
             padding: "4px 10px",
-            margin:"10px 5px ",
+            margin:"10px -20px ",
             fontSize: "12px",
             cursor: "pointer",
             borderRadius: "4px",

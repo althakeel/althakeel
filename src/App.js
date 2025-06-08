@@ -7,7 +7,6 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Careers from './pages/careers';
 import Brands from './pages/brands';
-import Ecommerce from './pages/ecommerce';
 import Partner from './pages/partner';
 import Blogs from './pages/blogs';
 import Contact from './pages/contact';
@@ -57,7 +56,6 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/brands" element={<Brands />} />
-          <Route path="/ecommerce" element={<Ecommerce />} />
           <Route path="/partner" element={<Partner />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/contact" element={<Contact />} />

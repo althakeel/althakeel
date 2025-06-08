@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from '../components/header3'
+// import Header from '../components/header3'
 import Brands from '../components/brands/brands'
 import Footer from '../components/Footer'
 import Marque from '../components/brands/marque'
@@ -15,6 +15,8 @@ import { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import Store1920 from '../components/brands/store1920'
 import Galary from '../components/brands/galary'
+import Header from '../components/common/brands-header'
+import Banner from '../components/common/banners/brandsbanner'
 
 const Brand = () => {
   const location = useLocation();
@@ -37,6 +39,7 @@ const Brand = () => {
   return (
     <div>
       <Header />
+      <Banner/>
       <Marque />
 
       <Nexso /> 
