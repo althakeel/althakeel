@@ -11,6 +11,7 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+  
   const [prevScrollPos, setPrevScrollPos] = useState(window.scrollY);
 const [topBarVisible, setTopBarVisible] = useState(true);
 
