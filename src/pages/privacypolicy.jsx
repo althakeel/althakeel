@@ -2,6 +2,8 @@ import React from 'react';
 import Footer from '../components/Footer';
 import Header from '../components/common/header-privacy';
 import { useLanguage } from '../context/LanguageContext';
+import { Helmet } from 'react-helmet';
+
 
 const PrivacyPolicy = () => {
   const { language } = useLanguage(); // 'en' or 'ar'
@@ -166,6 +168,14 @@ const PrivacyPolicy = () => {
 
   return (
     <div style={pageStyle}>
+      <Helmet>
+  <html lang={language} dir={isRTL ? 'rtl' : 'ltr'} />
+  <title>{language === 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy'} | Al Thakeel</title>
+  <meta name="description" content={langContent.metaDescription} />
+
+  <link rel="canonical" href="https://www.althakeel.com/privacypolicy" />
+
+</Helmet>
       <Header />
       <div style={containerStyle}>
         <h1 style={headingStyle}>{language === 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy'}</h1>

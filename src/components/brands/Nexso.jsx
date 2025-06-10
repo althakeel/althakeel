@@ -46,7 +46,7 @@ const BuyNow = () => {
           }}
         >
           <a
-            href="http://www.nexso.com"
+            href="https://www.nexso.com"
             target='blank'
             style={{
               display: 'inline-block',

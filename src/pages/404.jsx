@@ -1,5 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+
 
 function NotFound() {
   const navigate = useNavigate();
@@ -45,6 +47,13 @@ function NotFound() {
   };
 
   return (
+    <>
+    <Helmet>
+        <html lang="en" />
+        <title>404 - Page Not Found | Al Thakeel</title>
+        <meta name="robots" content="noindex" />
+        <meta name="description" content="Oops! The page you are looking for doesn't exist. Navigate back to the homepage." />
+      </Helmet>
     <div style={containerStyle}>
       <h1 style={headingStyle}>404 Error</h1>
       <p style={messageStyle}>Sorry, the page you’re looking for doesn’t exist.</p>
@@ -52,6 +61,7 @@ function NotFound() {
         Go Back Home
       </button>
     </div>
+    </>
   );
 }
 
