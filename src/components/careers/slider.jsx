@@ -24,7 +24,7 @@ const newsItems = [
     image: "https://res.cloudinary.com/dm8z5zz5s/image/upload/v1749887742/11_hk5erp.webp",
   },
   {
-    id: 4,
+    id: 4, 
     title_en: "GLOBAL CINÉPOLIS ENTERS THE GULF WITH AL TAYER GROUP",
     title_ar: "سينيبوليس تدخل الخليج مع مجموعة الطاير",
     date: "Sep-05-2018",
