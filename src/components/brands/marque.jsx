@@ -2,31 +2,31 @@ import React from 'react';
 import { useLanguage } from '../../context/LanguageContext';
 
 const merchantLogos = [
-    { name: 'Amazon', logo: 'https://res.cloudinary.com/dnpwsutir/image/upload/v1748342618/1-removebg-preview_e8pbbv.png' },
-    { name: 'Noon', logo: 'https://res.cloudinary.com/dnpwsutir/image/upload/v1748342619/2-removebg-preview_fdp6ku.png' },
-    { name: 'Namshi', logo: 'https://res.cloudinary.com/dnpwsutir/image/upload/v1748342647/9-removebg-preview_z32bqc.png' },
-    { name: 'Ounass', logo: 'https://res.cloudinary.com/dnpwsutir/image/upload/v1748342654/3-removebg-preview_k6z8bn.png' },
-    { name: 'Microless', logo: 'https://res.cloudinary.com/dnpwsutir/image/upload/v1748342623/4-removebg-preview_yxey38.png' },
-    { name: 'Mumzworld', logo: 'https://res.cloudinary.com/dnpwsutir/image/upload/v1748342637/7-removebg-preview_sev0c3.png' },
-    { name: 'FirstCry', logo: 'https://res.cloudinary.com/dnpwsutir/image/upload/v1748342635/6-removebg-preview_wgghr8.png' },
-    { name: 'Union Coop', logo: 'https://res.cloudinary.com/dnpwsutir/image/upload/v1748342646/8-removebg-preview_x9lgxp.png' },
-    { name: 'Carrefour', logo: 'https://res.cloudinary.com/dnpwsutir/image/upload/v1748342624/5-removebg-preview_ndw7e7.png' },
-    { name: 'Sharjah DG', logo: 'https://res.cloudinary.com/dnpwsutir/image/upload/v1748342652/Untitled_design-removebg-preview_mlwdhe.png' },
-    { name: 'Lulu', logo: 'https://res.cloudinary.com/dnpwsutir/image/upload/v1748334414/11_kgnbkw.png' },
-    { name: 'Kibson', logo: 'https://res.cloudinary.com/dnpwsutir/image/upload/v1748339641/logo-horizontal-removebg-preview_yuzfpv.png' },
+    { name: 'Amazon', logo: 'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1749882230/1-removebg-preview_e8pbbv_ujxh4x.png' }, 
+    { name: 'Noon', logo: 'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1749882231/2-removebg-preview_fdp6ku_aohvld.png' },
+    { name: 'Namshi', logo: 'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1749882238/9-removebg-preview_z32bqc_ig9t8k.png' },
+    { name: 'Ounass', logo: 'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1749882231/3-removebg-preview_k6z8bn_zx4ncd.png' },
+    { name: 'Microless', logo: 'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1749882232/4-removebg-preview_yxey38_actmsc.png' },
+    { name: 'Mumzworld', logo: 'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1749882236/7-removebg-preview_sev0c3_wpphr8.png' },
+    { name: 'FirstCry', logo: 'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1749882234/6-removebg-preview_wgghr8_oyi7zb.png' },
+    { name: 'Union Coop', logo: 'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1749882237/8-removebg-preview_x9lgxp_uub2ky.png' },
+    { name: 'Carrefour', logo: 'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1749882233/5-removebg-preview_ndw7e7_i4tvzx.png' },
+    { name: 'Sharjah DG', logo: 'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1749882240/Untitled_design-removebg-preview_mlwdhe_ojdt85.png' },
+    { name: 'Lulu1', logo: 'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1749882239/11_kgnbkw_neld7w.png' }, 
+    { name: 'Kibson', logo: 'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1749882239/logo-horizontal-removebg-preview_yuzfpv_wbtaju.png' }, 
   ];
 
   const brandLogos = [
-    { name: 'Dyson', logo: 'https://res.cloudinary.com/dnpwsutir/image/upload/v1748339173/5-removebg-preview_fuan0p.png' },
-    { name: 'Apple', logo: 'https://res.cloudinary.com/dnpwsutir/image/upload/v1748339179/7-removebg-preview_jl3lm7.png' },
-    { name: 'Joyroom', logo: 'https://res.cloudinary.com/dnpwsutir/image/upload/v1748339277/ec744cd6de3dd034388256af9917e235_b3uv5q.webp' },
-    { name: 'Rasasi', logo: 'https://res.cloudinary.com/dnpwsutir/image/upload/v1748339171/3-removebg-preview_j3usje.png' },
-    { name: 'Ajmal', logo: 'https://res.cloudinary.com/dnpwsutir/image/upload/v1748335118/1_rrgtfc.png' },
-    { name: 'Cosmos', logo: 'https://res.cloudinary.com/dnpwsutir/image/upload/v1748339246/cosmos_oemezv.webp' },
-    { name: 'JBL', logo: 'https://res.cloudinary.com/dnpwsutir/image/upload/v1748339142/2-removebg-preview_zi48g1.png' },
-    { name: 'Samsung', logo: 'https://res.cloudinary.com/dnpwsutir/image/upload/v1748339185/10-removebg-preview_adzkfe.png' },
-    { name: 'Lenskart', logo: 'https://res.cloudinary.com/dnpwsutir/image/upload/v1748339184/9-removebg-preview_kxigb0.png' },
-    { name: 'Boat', logo: 'https://res.cloudinary.com/dnpwsutir/image/upload/v1748339181/8-removebg-preview_mbjx4a.png' },
+    { name: 'Dyson', logo: 'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1749882233/5_kbwtcb_mjfe27.png' }, 
+    { name: 'Apple', logo: 'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1749882235/7_xvp2tv_ivh9he.png' }, 
+    { name: 'Joyroom', logo: 'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1749882231/4_ncda67_hs8hfs.png' }, 
+    { name: 'Rasasi', logo: 'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1749882231/3_occv32_eqx5hq.png' },
+    { name: 'Ajmal', logo: 'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1749882230/1_rrgtfc_uobuzl.png' }, 
+    { name: 'Cosmos', logo: 'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1749882234/6_skbg1d_ncaj9l.png' }, 
+    { name: 'JBL', logo: 'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1749882230/2_yxwrcs_wzncfr.png' }, 
+    { name: 'Samsung', logo: 'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1749883660/3_fbt96l.png' },
+    { name: 'Lenskart', logo: 'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1749883128/9_rlhjlp.png' },
+    { name: 'Boat', logo: 'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1749883660/2_e9rhig.png' },
 ];
 
 // Combine all logos

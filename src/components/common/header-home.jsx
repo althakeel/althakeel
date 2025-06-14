@@ -148,7 +148,7 @@ const Header = () => {
     <header style={styles.header}>
       <Link to="/">
         <img
-          src="https://res.cloudinary.com/dnpwsutir/image/upload/v1748353387/Logo_V2_1_dvu1bp.png"
+          src="https://res.cloudinary.com/dm8z5zz5s/image/upload/v1748871708/Logo_1080_x_1080_White_en7zpv.png"
           alt="Al Thakeel Logo"
           style={styles.logo}
         />

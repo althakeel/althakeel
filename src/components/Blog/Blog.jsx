@@ -334,8 +334,8 @@ const Blog = () => {
               )}
               <div style={{ flex: 1 }}>
                 <p style={{ fontSize: 13, color: '#888' }}>{post.date} | {post.location}</p>
-                <h2 style={{ fontSize: 18, color: '#03045e', margin: '5px 0 2px' }}>{post.mainTitle}</h2>
-                {post.subtitle && <h4 style={{ fontSize: 15, color: '#0077b6', marginBottom: 4 }}>{post.subtitle}</h4>}
+                <h2 style={{ fontSize: 18, color: '#021c35', margin: '5px 0 0px' }}>{post.mainTitle}</h2>
+                {post.subtitle && <h4 style={{ fontSize: 15, color: '#c6a664', marginBottom: 2 }}>{post.subtitle}</h4>}
                 <p style={{ fontSize: 15, color: '#444' }}>{post.description}</p>
                 {expandedId === post.id && (
                   <>
@@ -376,24 +376,24 @@ const Blog = () => {
                   {expandedId === post.id ? t.showLess : t.showMore}
                 </button>
                 {post.buttonHref && post.buttonText && (
-                  <a
-                    href={post.buttonHref}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{
-                      display: 'inline-block',
-                      marginTop: 8,
-                      padding: '8px 12px',
-                      backgroundColor: '#021c35',
-                      color: '#fff',
-                      borderRadius: 6,
-                      textDecoration: 'none',
-                      fontSize: 14,
-                    }}
-                  >
-                    {post.buttonText}
-                  </a>
-                )}
+  <div style={{ display: 'flex', justifyContent: isArabic ? 'flex-start' : 'flex-end', marginTop: 8 }}>
+    <a
+      href={post.buttonHref}
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{
+        padding: '5px 12px',
+        backgroundColor: '#021c35',
+        color: '#fff',
+        borderRadius: 6,
+        textDecoration: 'none',
+        fontSize: 14,
+      }}
+    >
+      {post.buttonText}
+    </a>
+  </div>
+)}
               </div>
             </div>
           </article>
