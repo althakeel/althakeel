@@ -58,6 +58,7 @@ const Header = () => {
       justifyContent: 'space-between',
       direction: isArabic ? 'rtl' : 'ltr',
       transition: 'background 0.3s ease',
+      
       // transition: 'top 0.3s ease-in-out',
 
     },

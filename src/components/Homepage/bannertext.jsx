@@ -14,6 +14,8 @@ const merchantLogos = [
   { name: 'Sharjah DG', logo: 'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1748411524/10_ppew9g.png' },
   { name: 'Lulu', logo: 'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1748411524/11_sy0brn.png' },
   { name: 'Kibson', logo: 'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1748411526/19_f4k0vi.png' },
+    { name: 'Luxury Watch Deals', logo: 'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1750062135/Logo_1_t452xs.webp' }, 
+
 ];
 
 const brandLogos = [

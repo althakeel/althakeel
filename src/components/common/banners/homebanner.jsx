@@ -34,11 +34,14 @@ const HomeBanner = () => {
       zIndex: '5',
       width: '100%',
       top: 0,
-      height: '66vh',
+      // height: '66vh',
       overflow: 'hidden',
       direction: isArabic ? 'rtl' : 'ltr',
       fontFamily: 'Montserrat, sans-serif',
-      paddingTop: '80px'
+      paddingTop: '80px',
+   height: '66vh',
+maxHeight: '1000px',
+minHeight: '400px',
     }}>
       {/* Background Video */}
       <video
