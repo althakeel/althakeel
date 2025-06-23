@@ -63,7 +63,7 @@ function App() {
           <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-        {/* <ScrollUp /> */}
+        <ScrollUp />
       </Router>
       </div>
     </LanguageProvider>

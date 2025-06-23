@@ -100,8 +100,102 @@ const blogPosts = {
       image: 'https://static.toiimg.com/thumb/msid-121643345,width-400,resizemode-4,imgsize-72050/.jpg',
       buttonText: 'Read Full Article',
       buttonHref: 'https://economictimes.indiatimes.com/nri/work/uae-rolls-out-digital-work-permit-system-for-faster-hiring-of-overseas-workers/articleshow/121643345.cms',
-    }
-    
+    },
+    {
+     id: 'post7',
+    date: 'June 10, 2025',
+    location: 'UAE',
+    mainTitle: 'UAE Launches Digital Work Permit System to Accelerate Global Hiring',
+    subtitle: 'Smart employment reforms streamline overseas recruitment',
+    description:
+      'The UAE’s Ministry of Human Resources and Emiratisation (MoHRE) has launched a fully digital work permit platform to boost efficiency in hiring foreign workers. This initiative aligns with the country’s digital transformation goals and talent attraction strategies.',
+    section2:
+      'The system allows faster and more transparent processing of overseas employment contracts and permits. It aims to reduce paperwork, cut processing time, and offer greater compliance visibility to employers and workers alike.',
+    section3:
+      'Employers can now upload, track, and finalize job offers online with government authentication at every step. This is expected to benefit sectors like construction, healthcare, and tech—industries heavily reliant on foreign talent.',
+    section4:
+      'Al Thakeel’s consulting or staffing divisions could capitalize on this streamlined model by supporting clients with compliant hiring frameworks, or by expanding service offerings in recruitment and HR tech.',
+    section5:
+      'As the UAE continues to lead in smart governance, businesses that align with these digital-first approaches will gain operational advantages and improved global appeal.',
+    section6: '',
+    image:
+      'https://www.thesun.co.uk/wp-content/uploads/2025/06/newspress-collage-pvehvma2g-1750429549488.jpg?w=620',
+    buttonText: 'Read Full Article',
+    buttonHref:
+      'https://economictimes.indiatimes.com/nri/work/uae-rolls-out-digital-work-permit-system-for-faster-hiring-of-overseas-workers/articleshow/121643345.cms',
+  },
+  {
+  id: 'post8',
+  date: 'June 16, 2025',
+  location: 'UAE',
+  mainTitle: 'UAE Declares June 27 a Paid Holiday for Hijri New Year 1447',
+  subtitle: 'Private sector granted official leave for Islamic New Year',
+  description:
+    'The UAE government has announced that Friday, June 27, 2025, will be an official paid holiday for all private sector employees in celebration of the Islamic Hijri New Year (1447 AH). This comes as part of the country’s continued efforts to harmonize public and private sector holiday schedules.',
+  section2:
+    'The announcement was made by the Ministry of Human Resources and Emiratisation (MoHRE), following a similar declaration for the public sector. The holiday will allow employees across the UAE to observe the religious occasion and enjoy a long weekend.',
+  section3:
+    'Since the holiday falls on a Friday, many workers will effectively benefit from a three-day weekend. Work will resume on Monday, June 30, giving residents ample time for travel, rest, or family gatherings.',
+  section4:
+    'Companies in the UAE, especially those in hospitality, leisure, and retail, are expected to see an uptick in domestic tourism and consumer activity during the extended break.',
+  section5:
+    'The move reflects the UAE’s commitment to cultural inclusivity and work-life balance by aligning the Hijri calendar’s significance with modern workforce benefits.',
+  section6: '',
+  image:
+    'https://static.toiimg.com/thumb/msid-121887945,imgsize-998355,width-400,resizemode-4/121887945.jpg',
+  buttonText: 'Read Full Article',
+  buttonHref:
+    'https://timesofindia.indiatimes.com/world/middle-east/hijri-new-year-2025-uae-declares-june-27-as-paid-holiday-for-private-sector/articleshow/121887846.cms',
+},
+{
+  id: 'post9',
+  date: 'June 14, 2025',
+  location: 'UAE',
+  mainTitle: 'UAE Enforces Midday Work Ban from June 15 to September to Protect Workers',
+  subtitle: 'New regulations set to safeguard outdoor laborers during summer heat',
+  description:
+    'Starting June 15, 2025, the UAE has implemented a mandatory midday work ban to protect outdoor workers from extreme heat during the summer months. This regulation prohibits labor activities outdoors between 12:30 PM and 3:00 PM daily, aligning with health and safety standards.',
+  section2:
+    'The ban applies primarily to construction, maintenance, and other outdoor sectors where workers are exposed to high temperatures. Employers are required to strictly adhere to these timings to ensure the safety and well-being of their workforce.',
+  section3:
+    'Failure to comply can lead to penalties including fines and work stoppages. The Ministry of Human Resources and Emiratisation (MoHRE) will actively monitor workplaces for adherence to the rules throughout the summer period.',
+  section4:
+    'Employers are encouraged to adjust work schedules, provide adequate hydration, and implement other safety measures to mitigate heat-related risks. This regulation is part of the UAE’s broader commitment to improving labor conditions and protecting human rights.',
+  section5:
+    'With temperatures often soaring above 40°C (104°F), this midday break is expected to significantly reduce heat stress and related health incidents among outdoor workers, contributing to safer and more productive workplaces.',
+  section6: '',
+  image:
+    'https://static.toiimg.com/thumb/msid-121617759,imgsize-982872,width-400,resizemode-4/121617759.jpg',
+  buttonText: 'Read Full Article',
+  buttonHref:
+    'https://timesofindia.indiatimes.com/world/middle-east/uae-midday-work-ban-from-june-15-to-september-what-rules-employers-need-to-know/articleshow/121616274.cms',
+},
+{
+  id: 'post10',
+  date: 'June 20, 2025',
+  location: 'UAE',
+  mainTitle: 'UAE Establishes Ministry of Foreign Trade to Boost Global Commerce',
+  subtitle: 'New ministry aims to strengthen international trade relations and economic diversification',
+  description:
+    'The UAE government has announced the creation of a dedicated Ministry of Foreign Trade to enhance the country’s global trade strategy. This move is part of the nation’s broader vision to diversify its economy and expand international partnerships.',
+  section2:
+    'The ministry will focus on developing trade policies, negotiating trade agreements, and facilitating exports and imports to support the UAE’s economic growth. It aims to position the UAE as a leading global trade hub.',
+  section3:
+    'Prime Minister Sheikh Mohammed bin Rashid Al Maktoum emphasized that the new ministry will accelerate efforts to open new markets and create more business opportunities for UAE companies worldwide.',
+  section4:
+    'The establishment of this ministry aligns with the UAE’s strategic goals under the UAE Vision 2040, promoting sustainable economic development and enhancing the country’s competitiveness on the global stage.',
+  section5:
+    'Businesses and investors are expected to benefit from streamlined trade regulations and improved government support, fostering a more attractive environment for foreign investment and international collaboration.',
+  section6: '',
+  image:
+    'https://www.reuters.com/resizer/v2/O5G2F5GUT5PY7EUF2RHIPNP4KQ.jpg?auth=b407077a1ce520e99d950a41b4c1955764df55fa9017f243bcce5d4ed3a80bfa&width=640&quality=80',  // Replace with actual image URL from article if available
+  buttonText: 'Read Full Article',
+  buttonHref:
+    'https://www.reuters.com/world/middle-east/uae-creates-foreign-trade-ministry-prime-minister-says-2025-06-20/',
+}
+
+
+
     
     
     
@@ -203,7 +297,97 @@ const blogPosts = {
       image: 'https://static.toiimg.com/thumb/msid-121643345,width-400,resizemode-4,imgsize-72050/.jpg',
       buttonText: 'اقرأ المقال كاملًا',
       buttonHref: 'https://economictimes.indiatimes.com/nri/work/uae-rolls-out-digital-work-permit-system-for-faster-hiring-of-overseas-workers/articleshow/121643345.cms',
-    }
+    },
+     {
+      id: 'post7',
+  date: "10 يونيو 2025",
+  location: "الإمارات",
+  mainTitle: "الإمارات تطلق نظام تصاريح العمل الرقمي لتسريع التوظيف العالمي",
+  subtitle: "إصلاحات ذكية تسهّل التوظيف من الخارج",
+  description: "أعلنت وزارة الموارد البشرية والتوطين في الإمارات عن إطلاق منصة إلكترونية بالكامل لإصدار تصاريح العمل، بهدف تسريع إجراءات توظيف العمالة الأجنبية وزيادة الكفاءة. وتأتي هذه الخطوة ضمن استراتيجية التحول الرقمي للدولة وجذب المواهب العالمية.",
+  section2: "يوفر النظام الجديد معالجة أسرع وأكثر شفافية لعقود العمل وتصاريح الموظفين من الخارج. الهدف هو تقليل الأوراق، تسريع الإجراءات، وتعزيز وضوح الامتثال لأصحاب العمل والموظفين.",
+  section3: "يمكن للشركات الآن تحميل وتتبع واعتماد عروض العمل إلكترونياً، مع مصادقة الجهات الحكومية في كل مرحلة. النظام يخدم بشكل خاص قطاعات مثل البناء، والرعاية الصحية، والتكنولوجيا التي تعتمد بشكل كبير على العمالة الأجنبية.",
+  section4: "قسم الاستشارات أو التوظيف في شركة 'الثقيل' يمكنه الاستفادة من هذا النظام الرقمي من خلال تقديم حلول توظيف متوافقة أو توسيع خدماته في مجال التوظيف والتقنية الخاصة بالموارد البشرية.",
+  section5: "ومع استمرار الإمارات في ريادة الحوكمة الذكية، فإن الشركات التي تواكب هذا التحول الرقمي ستحقق ميزة تنافسية وتشجع على جذب كفاءات من مختلف أنحاء العالم.",
+  section6: "",
+  image: "https://static.toiimg.com/thumb/msid-121643345,width-400,resizemode-4,imgsize-72050/.jpg",
+  buttonText: "اقرأ المقال كاملًا",
+  buttonHref: "https://economictimes.indiatimes.com/nri/work/uae-rolls-out-digital-work-permit-system-for-faster-hiring-of-overseas-workers/articleshow/121643345.cms"
+},
+{
+  id: 'post8',
+  date: '16 يونيو 2025',
+  location: 'الإمارات',
+  mainTitle: 'الإمارات تعلن 27 يونيو عطلة مدفوعة الأجر لرأس السنة الهجرية 1447',
+  subtitle: 'القطاع الخاص يحصل على إجازة رسمية بمناسبة رأس السنة الإسلامية',
+  description:
+    'أعلنت حكومة الإمارات أن يوم الجمعة 27 يونيو 2025 سيكون عطلة رسمية مدفوعة الأجر لجميع موظفي القطاع الخاص احتفالًا برأس السنة الهجرية الإسلامية (1447 هـ). تأتي هذه الخطوة في إطار جهود الدولة المستمرة لمواءمة جداول العطل بين القطاعين العام والخاص.',
+  section2:
+    'وجاء الإعلان عن طريق وزارة الموارد البشرية والتوطين، بعد إعلان مماثل للقطاع العام. ستتيح العطلة للموظفين في كافة أنحاء الإمارات فرصة الاحتفال بالمناسبة الدينية والاستمتاع بعطلة نهاية أسبوع طويلة.',
+  section3:
+    'ونظرًا لأن العطلة تقع يوم الجمعة، سيستفيد العديد من العاملين من عطلة نهاية أسبوع تمتد إلى ثلاثة أيام. على أن يستأنف العمل يوم الإثنين 30 يونيو، مما يمنح السكان وقتًا كافيًا للسفر أو الراحة أو اللقاءات العائلية.',
+  section4:
+    'من المتوقع أن تشهد الشركات في الإمارات، خصوصًا في قطاعات الضيافة والترفيه والتجزئة، زيادة في النشاط السياحي والاستهلاكي خلال هذه العطلة الممتدة.',
+  section5:
+    'تعكس هذه الخطوة التزام الإمارات بالاحتفاء بالتنوع الثقافي وتحقيق التوازن بين الحياة والعمل من خلال ربط أهمية التقويم الهجري بمزايا حديثة لقوى العمل.',
+  section6: '',
+  image:
+    'https://static.toiimg.com/thumb/msid-121887945,imgsize-998355,width-400,resizemode-4/121887945.jpg',
+  buttonText: 'اقرأ المقال كاملًا',
+  buttonHref:
+    'https://timesofindia.indiatimes.com/world/middle-east/hijri-new-year-2025-uae-declares-june-27-as-paid-holiday-for-private-sector/articleshow/121887846.cms',
+},
+{
+  id: 'post9',
+  date: '14 يونيو 2025',
+  location: 'الإمارات',
+  mainTitle: 'الإمارات تفرض حظر العمل خلال فترة الظهيرة من 15 يونيو حتى سبتمبر لحماية العمال',
+  subtitle: 'لوائح جديدة لحماية العمال في أماكن العمل الخارجية خلال فصل الصيف',
+  description:
+    'اعتبارًا من 15 يونيو 2025، أعلنت الإمارات فرض حظر العمل في الفترة من 12:30 ظهرًا حتى 3:00 عصرًا لحماية العمال في أماكن العمل الخارجية من درجات الحرارة المرتفعة خلال أشهر الصيف. يأتي هذا القرار ضمن جهود تعزيز الصحة والسلامة المهنية.',
+  section2:
+    'يشمل الحظر قطاعات مثل البناء والصيانة والأعمال الخارجية الأخرى التي يتعرض فيها العمال لحرارة عالية. ويجب على أصحاب العمل الالتزام التام بهذه المواعيد لضمان سلامة ورفاهية العمال.',
+  section3:
+    'يُعرض عدم الالتزام للحظر لعقوبات قد تشمل غرامات وإيقاف العمل. وستقوم وزارة الموارد البشرية والتوطين بمراقبة أماكن العمل للتأكد من الالتزام بهذه اللوائح طوال فترة الصيف.',
+  section4:
+    'ينصح أصحاب العمل بإعادة جدولة ساعات العمل، وتوفير المياه الكافية، وتطبيق إجراءات سلامة إضافية لتقليل المخاطر المرتبطة بالحرارة. هذا القرار يعكس التزام الإمارات بتحسين ظروف العمل وحماية حقوق العمال.',
+  section5:
+    'مع ارتفاع درجات الحرارة التي تتجاوز غالبًا 40 درجة مئوية، يُتوقع أن يساهم هذا الحظر في تقليل الإجهاد الحراري والحوادث الصحية، مما يؤدي إلى بيئة عمل أكثر أمانًا وإنتاجية.',
+  section6: '',
+  image:
+    'https://static.toiimg.com/thumb/msid-121617759,imgsize-982872,width-400,resizemode-4/121617759.jpg',
+  buttonText: 'اقرأ المقال كاملًا',
+  buttonHref:
+    'https://timesofindia.indiatimes.com/world/middle-east/uae-midday-work-ban-from-june-15-to-september-what-rules-employers-need-to-know/articleshow/121616274.cms',
+},
+{
+  id: 'post10',
+  date: '20 يونيو 2025',
+  location: 'الإمارات',
+  mainTitle: 'الإمارات تُنشئ وزارة التجارة الخارجية لتعزيز التجارة العالمية',
+  subtitle: 'وزارة جديدة تهدف إلى تقوية العلاقات التجارية الدولية وتنويع الاقتصاد',
+  description:
+    'أعلنت حكومة الإمارات عن إنشاء وزارة مخصصة للتجارة الخارجية لتعزيز استراتيجية الدولة في التجارة العالمية. تأتي هذه الخطوة ضمن رؤية الإمارات الأوسع لتنويع اقتصادها وتوسيع الشراكات الدولية.',
+  section2:
+    'ستركز الوزارة على تطوير سياسات التجارة، والتفاوض على الاتفاقيات التجارية، وتسهيل عمليات التصدير والاستيراد لدعم النمو الاقتصادي للإمارات. وتهدف إلى تعزيز مكانة الإمارات كمركز تجاري عالمي رائد.',
+  section3:
+    'أكد سمو الشيخ محمد بن راشد آل مكتوم، رئيس مجلس الوزراء، أن الوزارة الجديدة ستسرّع الجهود لفتح أسواق جديدة وخلق المزيد من فرص الأعمال للشركات الإماراتية حول العالم.',
+  section4:
+    'يتماشى تأسيس هذه الوزارة مع الأهداف الاستراتيجية لرؤية الإمارات 2040، التي تركز على التنمية الاقتصادية المستدامة وتعزيز تنافسية الدولة على الساحة العالمية.',
+  section5:
+    'من المتوقع أن تستفيد الشركات والمستثمرون من تنظيمات تجارية أكثر سلاسة ودعم حكومي محسن، مما يعزز بيئة جذابة للاستثمار الأجنبي والتعاون الدولي.',
+  section6: '',
+  image:
+    'https://www.reuters.com/resizer/v2/O5G2F5GUT5PY7EUF2RHIPNP4KQ.jpg?auth=b407077a1ce520e99d950a41b4c1955764df55fa9017f243bcce5d4ed3a80bfa&width=640&quality=80',  // استبدل هذا بالرابط الحقيقي للصورة إذا توفرت
+  buttonText: 'اقرأ المقال كاملًا',
+  buttonHref:
+    'https://www.reuters.com/world/middle-east/uae-creates-foreign-trade-ministry-prime-minister-says-2025-06-20/',
+}
+
+
+
+    
+    
   ]
   
 };
@@ -226,8 +410,25 @@ const labels = {
 const Blog = () => {
   const { language } = useLanguage();
   const isArabic = language === 'ar';
+ const [filterText, setFilterText] = useState('');
+  const [sortOrder, setSortOrder] = useState('latest');
+  const [expandedId, setExpandedId] = useState(null);
+  const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' ? window.innerWidth <= 768 : false);
 
-  const posts = blogPosts[language] || blogPosts.en;
+
+// Sort posts based on sortOrder
+const sortedPosts = (blogPosts[language] || blogPosts.en).slice().sort((a, b) => {
+  const dateA = new Date(a.date);
+  const dateB = new Date(b.date);
+  return sortOrder === 'latest' ? dateB - dateA : dateA - dateB;
+});
+
+// Then filter the sorted posts
+const filteredPosts = sortedPosts.filter(post =>
+  post.mainTitle.toLowerCase().includes(filterText.toLowerCase())
+);
+
+const posts = (blogPosts[language] || blogPosts.en).slice().sort((a, b) => new Date(b.date) - new Date(a.date));
   const t = labels[language] || labels.en;
 
   const refs = useRef(posts.reduce((acc, post) => {
@@ -235,9 +436,6 @@ const Blog = () => {
     return acc;
   }, {}));
 
-  const [expandedId, setExpandedId] = useState(null);
-  const [filterText, setFilterText] = useState('');
-  const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' ? window.innerWidth <= 768 : false);
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
@@ -245,9 +443,6 @@ const Blog = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const filteredPosts = posts.filter(post =>
-    post.mainTitle.toLowerCase().includes(filterText.toLowerCase())
-  );
 
   const scrollTo = (id) => refs.current[id]?.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   const toggleExpand = (id) => setExpandedId(prev => (prev === id ? null : id));
@@ -270,43 +465,58 @@ const Blog = () => {
         }}
       >
         <h3 style={{ marginBottom: 10 }}>{t.blogTitles}</h3>
-        {/* <input
-          type="text"
-          placeholder={t.filter}
-          value={filterText}
-          onChange={(e) => setFilterText(e.target.value)}
+       
+         <ul style={{ listStyle: 'none', padding: 0, fontSize: 14 }}>
+    {filteredPosts.map(post => (
+      <li key={post.id} style={{ marginBottom: 8 }}>
+        <button
+          onClick={() => scrollTo(post.id)}
           style={{
-            width: '100%',
-            padding: 8,
-            marginBottom: 12,
-            border: '1px solid #ccc',
-            borderRadius: 6,
-            fontSize: 14,
+            background: 'none',
+            border: 'none',
+            color: '#0077b6',
+            cursor: 'pointer',
+            textAlign: 'left',
+            fontWeight: 500,
           }}
-        /> */}
-        <ul style={{ listStyle: 'none', padding: 0, fontSize: 14 }}>
-          {filteredPosts.map(post => (
-            <li key={post.id} style={{ marginBottom: 8 }}>
-              <button
-                onClick={() => scrollTo(post.id)}
-                style={{
-                  background: 'none',
-                  border: 'none',
-                  color: '#0077b6',
-                  cursor: 'pointer',
-                  textAlign: 'left',
-                  fontWeight: 500,
-                }}
-              >
-                {post.mainTitle}
-              </button>
-            </li>
-          ))}
-        </ul>
-      </aside>
+        >
+          {post.mainTitle}
+        </button>
+      </li>
+    ))}
+  </ul>
+</aside>
 
       {/* Blog content */}
+      
       <main style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 24 }}>
+         <div
+  style={{
+    marginBottom: 20,
+    minWidth: 140,
+  }}
+>
+  <select
+    value={sortOrder}
+    onChange={(e) => setSortOrder(e.target.value)}
+    style={{
+      width: '20%',
+      padding: '8px 12px',
+      fontSize: 14,
+      borderRadius: 8,
+      border: '1.5px solid #ccc',
+      cursor: 'pointer',
+      outline: 'none',
+      transition: 'border-color 0.3s ease',
+      backgroundColor: '#fff',
+    }}
+    onFocus={(e) => (e.target.style.borderColor = '#c6a664')}
+    onBlur={(e) => (e.target.style.borderColor = '#ccc')}
+  >
+    <option value="latest">{isArabic ? 'الأحدث أولاً' : 'Latest First'}</option>
+    <option value="oldest">{isArabic ? 'الأقدم أولاً' : 'Oldest First'}</option>
+  </select>
+</div>
         {filteredPosts.map((post) => (
           <article
             key={post.id}
@@ -318,6 +528,8 @@ const Blog = () => {
               boxShadow: '0 4px 16px rgba(0,0,0,0.08)',
             }}
           >
+         
+
             <div style={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', gap: 20 }}>
               {expandedId !== post.id && (
                 <img
