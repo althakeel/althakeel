@@ -37,15 +37,16 @@ const JobAlertBanner = () => {
 
   return (
     <section
-      style={{
-        background: 'url(https://images.unsplash.com/photo-1603791440384-56cd371ee9a7) center/cover',
-        padding: '100px 20px',
-        fontFamily: "'Montserrat', sans-serif",
-        direction: isArabic ? 'rtl' : 'ltr',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
+    style={{
+    // background: 'url(https://images.unsplash.com/photo-1603791440384-56cd371ee9a7) center/cover',
+    padding: '60px 20px 80px',
+    fontFamily: "'Montserrat', sans-serif",
+    direction: isArabic ? 'rtl' : 'ltr',
+    display: 'flex',
+    justifyContent: 'center',
+    backgroundColor: '#021C35',  // <-- fix here
+    alignItems: 'center',
+  }}
     >
       <div
         style={{

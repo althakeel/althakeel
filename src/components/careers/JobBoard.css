@@ -6,6 +6,11 @@ font-family: 'Montserrat', sans-serif;
 
   
 }
+.job-board-container, 
+.job-board-container * {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
 
 .job-board-header {
   display: flex;
@@ -55,6 +60,7 @@ font-family: 'Montserrat', sans-serif;
   justify-content: space-between;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: default;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .job-card:hover {
@@ -67,6 +73,7 @@ font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   margin-bottom: 6px;
   color: #14213d;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .job-company-location {
@@ -86,6 +93,7 @@ font-family: 'Montserrat', sans-serif;
   color: #444;
   margin-bottom: 16px;
   flex-grow: 1;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .job-salary {
@@ -93,12 +101,14 @@ font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   color: #2a9d8f;
   margin-bottom: 18px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 /* Buttons container */
 .job-buttons {
   display: flex;
   gap: 10px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .apply-now-button,
@@ -224,4 +234,27 @@ font-family: 'Montserrat', sans-serif;
   font-size: 18px;
   color: #666;
   margin-top: 50px;
+}
+.urgent-badge {
+  background-color: #e53935; /* red */
+  color: white;
+  font-weight: bold;
+  font-size: 0.75rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 8px;
+  vertical-align: middle;
+  user-select: none;
+}
+
+.urgent-badge-modal {
+  background-color: #d32f2f;
+  color: white;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 4px 8px;
+  border-radius: 5px;
+  margin-left: 10px;
+  vertical-align: middle;
+  user-select: none;
 }
