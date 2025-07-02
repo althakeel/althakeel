@@ -10,6 +10,7 @@ import Oppertunity from '../components/careers/oppertunity';
 import Career from '../components/careers/career';
 import Banner from '../components/common/banners/careerbanner';
 import Header from '../components/common/header-career';
+import JobBoard from '../components/careers/JobBoard';
 
 const Careers = () => {
   return (
@@ -25,8 +26,11 @@ const Careers = () => {
 
       <Header />
       <Banner />
+    
       <Career />
+ 
       <Oppertunity />
+             <JobBoard/>
       <Galary />
       <Job />
       <SocialMedia />

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
 import TopBar from './topbar';
@@ -11,6 +11,8 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+   const hoverTimeout = useRef(null);
+  
   const [prevScrollPos, setPrevScrollPos] = useState(window.scrollY);
 const [topBarVisible, setTopBarVisible] = useState(true);
 
@@ -25,6 +27,22 @@ const [topBarVisible, setTopBarVisible] = useState(true);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleMouseLeave = () => {
+    clearTimeout(hoverTimeout.current);
+    // Hide dropdown after delay (300ms)
+    hoverTimeout.current = setTimeout(() => {
+      setActiveDropdown(null);
+    }, 300);
+  };
+
+   const handleMouseEnter = (idx) => {
+    clearTimeout(hoverTimeout.current);
+    // Show dropdown after short delay (150ms)
+    hoverTimeout.current = setTimeout(() => {
+      setActiveDropdown(idx);
+    }, 150);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,11 +63,11 @@ const [topBarVisible, setTopBarVisible] = useState(true);
     { label: isArabic ? 'علاماتنا التجارية' : 'OUR BRANDS', path: '/brands' },
     {
       label: isArabic ? 'التجارة الإلكترونية' : 'ECOMMERCE',
-      dropdown: [
-        { label: 'NEXSO', path: '/ecommerce/nexso' },
-        { label: 'VELLORE PARIS', path: '/ecommerce/vellore-paris' },
-        { label: 'GRAHAAM', path: '/ecommerce/grahaam' },
-        { label: 'STORE1920', path: '/ecommerce/store1920' },
+       dropdown: [
+        { label: 'NEXSO', href: 'https://nexso.ae' },
+        { label: 'VELLORE PARIS', href: 'https://velloreparis.com' },
+        { label: 'GRAHAAM', href: 'https://grahaam.com' },
+        { label: 'STORE1920', href: 'https://store1920.com' },
       ],
     },
     { label: isArabic ? 'كن شريكًا' : 'PARTNER WITH US', path: '/partner' },
@@ -167,21 +185,21 @@ const [topBarVisible, setTopBarVisible] = useState(true);
       <div style={styles.container}>
         <header style={styles.header}>
           <Link to="/">
-          <img
+            <img
           src="https://res.cloudinary.com/dm8z5zz5s/image/upload/v1748871708/Logo_1080_x_1080_White_en7zpv.png"
           alt="Al Thakeel Logo"
-          style={styles.logo}
-        />
+              style={styles.logo}
+            />
           </Link>
 
           {/* Desktop Nav */}
-          <nav style={styles.nav}>
+           <nav style={styles.nav}>
             {navItems.map((item, idx) => (
               <div
                 key={idx}
                 style={{ position: 'relative' }}
-                onMouseEnter={() => setActiveDropdown(idx)}
-                onMouseLeave={() => setActiveDropdown(null)}
+                onMouseEnter={() => handleMouseEnter(idx)}
+                onMouseLeave={handleMouseLeave}
               >
                 {item.dropdown ? (
                   <>
@@ -189,26 +207,32 @@ const [topBarVisible, setTopBarVisible] = useState(true);
                     {activeDropdown === idx && (
                       <div style={styles.dropdownMenu}>
                         {item.dropdown.map((subItem, subIdx) => (
-                          <Link key={subIdx} to={subItem.path} style={styles.dropdownItem}>
+                          <a
+                            key={subIdx}
+                            href={subItem.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={styles.dropdownItem}
+                          >
                             {subItem.label}
-                          </Link>
+                          </a>
                         ))}
                       </div>
                     )}
                   </>
                 ) : (
                   <Link
-                  to={item.path}
-                  style={{
-                    ...styles.link,
-                    ...(item.path === '/contact' && {
-                      borderBottom: '2px solid white',
-                      paddingBottom: '5px', 
-                    }),
-                  }}
-                >
-                  {item.label}
-                </Link>
+                    to={item.path}
+                    style={{
+                      ...styles.link,
+                      ...(item.path === '/contact' && {
+                        borderBottom: '2px solid white',
+                        paddingBottom: '5px',
+                      }),
+                    }}
+                  >
+                    {item.label}
+                  </Link>
                 )}
               </div>
             ))}
@@ -217,7 +241,7 @@ const [topBarVisible, setTopBarVisible] = useState(true);
             </button>
           </nav>
 
-          {/* Hamburger Icon */}
+          {/* Hamburger and mobile menu remain exactly the same */}
           <button
             style={styles.hamburger}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -225,7 +249,6 @@ const [topBarVisible, setTopBarVisible] = useState(true);
           >
             ☰
           </button>
-
           {/* Mobile Menu */}
           <div style={styles.mobileMenu}>
             {navItems.map((item, idx) => (
@@ -242,19 +265,33 @@ const [topBarVisible, setTopBarVisible] = useState(true);
                     </div>
                     {activeDropdown === idx &&
                       item.dropdown.map((subItem, subIdx) => (
-                        <Link key={subIdx} to={subItem.path} style={styles.mobileLink}>
+                        <a
+                          key={subIdx}
+                          href={subItem.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          style={styles.mobileLink}
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
                           {subItem.label}
-                        </Link>
+                        </a>
                       ))}
                   </>
                 ) : (
-                  <Link to={item.path} style={styles.mobileLink}>
+                  <Link
+                    to={item.path}
+                    style={styles.mobileLink}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
                     {item.label}
                   </Link>
                 )}
               </div>
             ))}
-            <button style={{ ...styles.mobileLink, ...styles.langBtn }} onClick={toggleLanguage}>
+            <button
+              style={{ ...styles.mobileLink, ...styles.langBtn }}
+              onClick={toggleLanguage}
+            >
               {isArabic ? 'English' : 'العربية'}
             </button>
           </div>
@@ -263,5 +300,4 @@ const [topBarVisible, setTopBarVisible] = useState(true);
     </>
   );
 };
-
 export default Header;

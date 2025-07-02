@@ -1,0 +1,227 @@
+.job-board-container {
+  max-width: 1400px;
+  margin: 40px auto;
+  padding: 0 20px;
+font-family: 'Montserrat', sans-serif;
+
+  
+}
+
+.job-board-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  gap: 15px;
+  
+}
+
+.toggle-tab {
+  cursor: pointer;
+  padding: 10px 22px;
+  /* background-color: #f0f0f0; */
+    background-color: transparent;
+  border: 1px solid #fff;
+  border-radius: 30px;
+  font-weight: 600;
+  color: #ffffff;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-tab:hover {
+  background-color: #ddd;
+}
+
+.toggle-tab.active {
+  background-color: #fff;
+  border: 1px solid #fff;
+  color:  #021C35;
+  /* box-shadow: 0 4px 8px rgb(25 118 210 / 0.4); */
+}
+
+.jobs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 22px;
+}
+
+.job-card {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 22px 20px 30px 20px;
+  box-shadow: 0 3px 12px rgb(0 0 0 / 0.07);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+
+.job-card:hover {
+  box-shadow: 0 6px 18px rgb(0 0 0 / 0.12);
+  transform: translateY(-4px);
+}
+
+.job-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #14213d;
+}
+
+.job-company-location {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.job-date {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 12px;
+}
+
+.job-description {
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 16px;
+  flex-grow: 1;
+}
+
+.job-salary {
+  font-size: 15px;
+  font-weight: 600;
+  color: #2a9d8f;
+  margin-bottom: 18px;
+}
+
+/* Buttons container */
+.job-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.apply-now-button,
+.know-more-button {
+  flex: 1;
+  padding: 10px 0;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Apply Now button style */
+.apply-now-button {
+  background-color: #0077b6;
+  color: white;
+}
+
+.apply-now-button:hover {
+  background-color: #005f86;
+}
+
+/* Know More button style */
+.know-more-button {
+  background-color: #caf0f8;
+  color: #0077b6;
+}
+
+.know-more-button:hover {
+  background-color: #90e0ef;
+}
+
+/* Closed job card */
+.closed-job {
+  opacity: 0.6;
+  pointer-events: none;
+  background-color: #f8f9fa;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.modal-content {
+  background-color: white;
+  border-radius: 14px;
+  padding: 30px 30px 40px 30px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.modal-close-button {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.modal-close-button:hover {
+  background-color: #d32f2f;
+}
+
+.modal-job-title {
+  margin-bottom: 10px;
+  font-size: 26px;
+  font-weight: 700;
+  color: #14213d;
+}
+
+.modal-job-description {
+  margin: 18px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.apply-button {
+  margin-top: 20px;
+  background-color: #0077b6;
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.apply-button:hover {
+  background-color: #005f86;
+}
+
+.no-jobs-message {
+  text-align: center;
+  font-size: 18px;
+  color: #666;
+  margin-top: 50px;
+}

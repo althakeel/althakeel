@@ -12,17 +12,15 @@ const Header = () => {
   const [activeMobileDropdown, setActiveMobileDropdown] = useState(null);
   const [hoverTimeout, setHoverTimeout] = useState(null);
 
-
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 1024);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener('resize', handleResize);
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   const navItems = [
@@ -31,7 +29,7 @@ const Header = () => {
     {
       label: isArabic ? 'التجارة الإلكترونية' : 'ECOMMERCE',
       dropdown: [
-        { label: 'NEXSO', href: 'https://nexso.com' },
+        { label: 'NEXSO', href: 'https://nexso.ae' },
         { label: 'VELLORE PARIS', href: 'https://velloreparis.com' },
         { label: 'GRAHAAM', href: 'https://grahaam.com' },
         { label: 'STORE1920', href: 'https://store1920.com' },
@@ -58,13 +56,8 @@ const Header = () => {
       justifyContent: 'space-between',
       direction: isArabic ? 'rtl' : 'ltr',
       transition: 'background 0.3s ease',
-      
-      // transition: 'top 0.3s ease-in-out',
-
     },
-    logo: {
-      height: '50px',
-    },
+    logo: { height: '50px' },
     nav: {
       display: isMobile ? 'none' : 'flex',
       gap: '35px',
@@ -93,6 +86,7 @@ const Header = () => {
       color: '#fff',
       textDecoration: 'none',
       display: 'block',
+      whiteSpace: 'nowrap',
     },
     langBtn: {
       padding: '6px 12px',
@@ -129,20 +123,6 @@ const Header = () => {
       padding: '12px 0',
       borderBottom: '1px solid rgba(255,255,255,0.1)',
     },
-    link: {
-      color: '#fff',
-      textDecoration: 'none',
-      position: 'relative',
-      cursor: 'pointer',
-    },
-    dropdownItem: {
-      padding: '10px 20px',
-      color: '#fff',
-      textDecoration: 'none',
-      display: 'block',
-      whiteSpace: 'nowrap',
-    },
- 
   };
 
   return (
@@ -157,46 +137,57 @@ const Header = () => {
 
       {/* Desktop Nav */}
       <nav style={styles.nav}>
-  {navItems.map((item, idx) => (
-    <div
-    key={idx}
-    style={{ position: 'relative' }}
-    onMouseEnter={() => {
-      if (hoverTimeout) clearTimeout(hoverTimeout);
-      setActiveMobileDropdown(idx);
-    }}
-    onMouseLeave={() => {
-      const timeout = setTimeout(() => setActiveMobileDropdown(null), 200);
-      setHoverTimeout(timeout);
-    }}
-    >
-      {item.dropdown ? (
-        <>
-          <span style={styles.link}>
-            {item.label} ▼
-          </span>
-          {activeMobileDropdown === idx && (
-            <div style={styles.dropdownMenu}>
-              {item.dropdown.map((subItem, subIdx) => (
-                <Link key={subIdx} to={subItem.path} style={styles.dropdownItem}>
-                  {subItem.label}
-                </Link>
-              ))}
-            </div>
-          )}
-        </>
-      ) : (
-        <Link to={item.path} style={styles.link}>
-          {item.label}
-        </Link>
-      )}
-    </div>
-  ))}
-  <button style={styles.langBtn} onClick={toggleLanguage}>
-    {isArabic ? 'English' : 'العربية'}
-  </button>
-</nav>
-
+        {navItems.map((item, idx) => (
+          <div
+            key={idx}
+            style={{ position: 'relative' }}
+            onMouseEnter={() => {
+              if (hoverTimeout) clearTimeout(hoverTimeout);
+              setActiveMobileDropdown(idx);
+            }}
+            onMouseLeave={() => {
+              const timeout = setTimeout(() => setActiveMobileDropdown(null), 200);
+              setHoverTimeout(timeout);
+            }}
+          >
+            {item.dropdown ? (
+              <>
+                <span style={styles.link}>
+                  {item.label} ▼
+                </span>
+                {activeMobileDropdown === idx && (
+                  <div style={styles.dropdownMenu}>
+                    {item.dropdown.map((subItem, subIdx) =>
+                      subItem.href ? (
+                        <a
+                          key={subIdx}
+                          href={subItem.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          style={styles.dropdownItem}
+                        >
+                          {subItem.label}
+                        </a>
+                      ) : (
+                        <Link key={subIdx} to={subItem.path} style={styles.dropdownItem}>
+                          {subItem.label}
+                        </Link>
+                      )
+                    )}
+                  </div>
+                )}
+              </>
+            ) : (
+              <Link to={item.path} style={styles.link}>
+                {item.label}
+              </Link>
+            )}
+          </div>
+        ))}
+        <button style={styles.langBtn} onClick={toggleLanguage}>
+          {isArabic ? 'English' : 'العربية'}
+        </button>
+      </nav>
 
       {/* Hamburger */}
       <button
@@ -213,40 +204,58 @@ const Header = () => {
           <div key={idx}>
             {item.dropdown ? (
               <>
-               <div
-  style={styles.mobileLink}
-  onClick={() => {
-    if (activeMobileDropdown === idx) {
-      setActiveMobileDropdown(null);
-    } else {
-      setActiveMobileDropdown(idx);
-    }
-  }}
->
-  {item.label} ▼
-</div>
-
+                <div
+                  style={styles.mobileLink}
+                  onClick={() =>
+                    setActiveMobileDropdown(activeMobileDropdown === idx ? null : idx)
+                  }
+                >
+                  {item.label} ▼
+                </div>
                 {activeMobileDropdown === idx &&
-                  item.dropdown.map((subItem, subIdx) => (
-<Link to={subItem.path} style={styles.mobileLink} onClick={() => setMobileMenuOpen(false)}>
-{subItem.label}
-                    </Link>
-                  ))}
+                  item.dropdown.map((subItem, subIdx) =>
+                    subItem.href ? (
+                      <a
+                        key={subIdx}
+                        href={subItem.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={styles.mobileLink}
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {subItem.label}
+                      </a>
+                    ) : (
+                      <Link
+                        key={subIdx}
+                        to={subItem.path}
+                        style={styles.mobileLink}
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {subItem.label}
+                      </Link>
+                    )
+                  )}
               </>
             ) : (
-<Link to={item.path} style={styles.mobileLink} onClick={() => setMobileMenuOpen(false)}>
-{item.label}
+              <Link
+                to={item.path}
+                style={styles.mobileLink}
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {item.label}
               </Link>
             )}
           </div>
         ))}
-
-        <button style={{ ...styles.mobileLink, ...styles.langBtn }} onClick={toggleLanguage}>
+        <button
+          style={{ ...styles.mobileLink, ...styles.langBtn, border: 'none' }}
+          onClick={toggleLanguage}
+        >
           {isArabic ? 'English' : 'العربية'}
         </button>
       </div>
     </header>
-    
   );
 };
 
