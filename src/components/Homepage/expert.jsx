@@ -57,7 +57,7 @@ const ImageGrid = () => {
   ];
 
   const hoverLogos = [
-    'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1748438403/26_kjecc7.png',
+    'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1754472844/Logo_White_1_poejuj.png',
     'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1748422261/23_qnvw4s.png',
     'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1748436936/nexso_logo_green_and_white_otlfte.png',
     'https://res.cloudinary.com/dm8z5zz5s/image/upload/v1748438405/28_nai4xh.png',

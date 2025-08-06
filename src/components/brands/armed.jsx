@@ -96,7 +96,7 @@ const BuyNow = () => {
           }}
         >
           <img
-            src="https://res.cloudinary.com/dm8z5zz5s/image/upload/v1748769629/Armed_LOGO_white_ivuwqf.webp"
+            src="https://res.cloudinary.com/dm8z5zz5s/image/upload/v1754472844/Logo_White_1_poejuj.png"
             alt="Grahaam Logo"
             style={{ width: '120px', marginBottom: '30px' }}
           />
