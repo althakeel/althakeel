@@ -47,8 +47,8 @@ const Footer = () => {
       ? "قوة تعاونية للعلامات التجارية والابتكار."
       : "A cooperative powerhouse of brands & innovation.",
     copyright: isArabic
-      ? "© 2025 الثكيل. جميع الحقوق محفوظة."
-      : "© 2025 Al Thakeel. All rights reserved.",
+      ? "© 2025 شركة الثكيل للتجارة العامة ذ.م.م. جميع الحقوق محفوظة."
+      : "© 2025 AL THAKEEL GENERAL TRADING LLC. All rights reserved.",
     languageToggle: isArabic ? "English" : "العربية",
   };
 
